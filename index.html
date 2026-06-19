@@ -36,18 +36,6 @@
   .hd .meta{font-size:clamp(10px,2.5vw,11px);color:var(--mt);display:flex;gap:6px;flex-wrap:wrap}
   .hd .meta span{background:var(--ca);padding:3px 8px;border-radius:10px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
 
-  /* STRATEGIC BAR */
-  .strat{display:flex;gap:0;margin-bottom:14px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;border-radius:10px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
-  .strat::-webkit-scrollbar{display:none}
-  .strat .ph{flex:1;min-width:80px;text-align:center;padding:clamp(10px,2.5vw,14px) clamp(6px,1.5vw,10px);font-size:clamp(10px,2.5vw,12px);font-weight:700;background:var(--ca);color:var(--mt);border-right:1px solid #f0ede6;cursor:pointer;transition:.2s}
-  .strat .ph:last-child{border-right:none}
-  .strat .ph .dy{font-size:clamp(9px,2vw,10px);font-weight:400;color:var(--mt);display:block}
-  .strat .ph.on{background:var(--tx);color:#fff}
-  .strat .ph.on .dy{color:rgba(255,255,255,.6)}
-  .strat .ph.done{background:var(--green-bg);color:var(--green)}
-  .strat .ph.done::after{content:' ✓';font-size:10px}
-  @media(min-width:768px){.strat .ph{min-width:110px}}
-
   /* GANTT */
   .gantt-wrap{background:var(--ca);border-radius:10px;padding:clamp(10px,2.5vw,14px) 10px 10px;box-shadow:0 1px 3px rgba(0,0,0,.04);overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px;position:relative}
   .gantt-wrap::after{content:'← 左右滑动 →';display:block;text-align:center;font-size:10px;color:var(--mt);padding:6px 0 0}
@@ -68,10 +56,12 @@
   .gantt .cell .loc{font-size:clamp(7px,1.8vw,9px);opacity:.8}
   .gantt .empty{min-height:clamp(32px,8vw,40px)}
   .gc{background:var(--green-bg);color:var(--green)}
-  .gm{background:var(--amber-bg);color:var(--amber)}
+  .gm{background:var(--blue-bg);color:var(--blue)}
   .gt{background:var(--amber-bg);color:var(--amber)}
   .gl{background:var(--plum-bg);color:var(--plum)}
   .gr{background:var(--warm-bg);color:var(--warm)}
+  /* vertical dividers between days */
+  .gantt td:nth-child(3n+6),.gantt th:nth-child(3n+6){border-left:3px solid #d0cdc8}
   .gn{color:#ccc;text-align:center;font-size:clamp(11px,3vw,14px);padding-top:12px}
   .gantt .cell.night-cell{background:#f5f0e8;color:var(--warm);min-height:24px;font-size:clamp(8px,2vw,9px)}
 
@@ -80,7 +70,8 @@
   .legend span{display:inline-flex;align-items:center;gap:4px}
   .legend span::before{content:'';display:inline-block;width:12px;height:12px;border-radius:3px}
   .legend .lc::before{background:var(--green-bg);border:1px solid var(--green)}
-  .legend .lm::before{background:var(--amber-bg);border:1px solid var(--amber)}
+  .legend .lm::before{background:var(--blue-bg);border:1px solid var(--blue)}
+  .legend .lt::before{background:var(--amber-bg);border:1px solid var(--amber)}
   .legend .ll::before{background:var(--plum-bg);border:1px solid var(--plum)}
   .legend .lr::before{background:var(--warm-bg);border:1px solid var(--warm)}
 
@@ -97,7 +88,7 @@
   @media(max-width:400px){.obj4{grid-template-columns:1fr}}
   .oc{background:var(--ca);border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.03);border-top:3px solid}
   .oc.o1{border-top-color:var(--green)}
-  .oc.o2{border-top-color:var(--amber)}
+  .oc.o2{border-top-color:var(--blue)}
   .oc.o3{border-top-color:var(--amber)}
   .oc.o4{border-top-color:var(--plum)}
   .oc .oicon{font-size:24px;margin-bottom:4px}
@@ -145,7 +136,7 @@
   .hlb{background:#f5f7ff;border-left-color:var(--blue)}
 
   .badge{display:inline-block;font-size:clamp(9px,2vw,10px);padding:1px 7px;border-radius:10px;font-weight:700}
-  .bc{background:var(--green-bg);color:var(--green)} .bm{background:var(--amber-bg);color:var(--amber)}
+  .bc{background:var(--green-bg);color:var(--green)} .bm{background:var(--blue-bg);color:var(--blue)}
   .bt{background:var(--amber-bg);color:var(--amber)} .bl{background:var(--plum-bg);color:var(--plum)}
 
   .divider{border-top:1px dashed #ddd;margin:10px 0}
@@ -161,7 +152,7 @@
   .sl .sb div{margin-bottom:2px}
   .sl .sf{padding:clamp(3px,1vw,5px) clamp(8px,2vw,12px);font-size:clamp(9px,2.2vw,10px);color:var(--mt)}
   .slc .sh{background:var(--green-bg);color:var(--green)} .slc .sf{background:var(--green-bg);color:var(--green)} .slc{border-left:3px solid var(--green-ln)}
-  .slm .sh{background:var(--amber-bg);color:var(--amber)} .slm .sf{background:var(--amber-bg);color:var(--amber)} .slm{border-left:3px solid var(--amber-ln)}
+  .slm .sh{background:var(--blue-bg);color:var(--blue)} .slm .sf{background:var(--blue-bg);color:var(--blue)} .slm{border-left:3px solid var(--blue-ln)}
   .slt .sh{background:var(--amber-bg);color:var(--amber)} .slt .sf{background:var(--amber-bg);color:var(--amber)} .slt{border-left:3px solid var(--amber-ln)}
   .sll .sh{background:var(--plum-bg);color:var(--plum)} .sll .sf{background:var(--plum-bg);color:var(--plum)} .sll{border-left:3px solid var(--plum-ln)}
   .slr .sh{background:var(--warm-bg);color:var(--warm)} .slr .sf{background:var(--warm-bg);color:var(--warm)} .slr{border-left:3px solid var(--warm-ln)}
@@ -190,20 +181,11 @@
 <!-- ===== TAB 1: 总览 ===== -->
 <div class="tp on" id="tp-ov">
 
-  <!-- Strategic bar -->
-  <div class="strat" id="stratBar">
-    <div class="ph on" onclick="jumpDay(0)"><span class="dy">D1</span>踩点摸底</div>
-    <div class="ph" onclick="jumpDay(1)"><span class="dy">D2-D3</span>培训赋能</div>
-    <div class="ph" onclick="jumpDay(3)"><span class="dy">D4</span>入户收效</div>
-    <div class="ph" onclick="jumpDay(4)"><span class="dy">D5</span>结业庆典</div>
-    <div class="ph" onclick="jumpDay(5)"><span class="dy">D6-D7</span>补漏收尾</div>
-  </div>
-
   <!-- Gantt -->
   <div class="gantt-wrap" id="ganttArea">
-    <h3>7日甘特图 <small>— 色块=动作属性 · 点击战略条跳转</small></h3>
+    <h3>7日甘特图 <small>— 纵杠分隔每天 · 色块区分对象</small></h3>
     <div class="legend">
-      <span class="lc">产出/成果</span><span class="lm">接触/教学</span><span class="ll">普法专项</span><span class="lr">后勤/空白</span>
+      <span class="lc">留守儿童</span><span class="lm">民宿主</span><span class="lt">茶农/电商</span><span class="ll">农户/普法</span><span class="lr">后勤</span>
     </div>
     <table class="gantt">
       <thead>
