@@ -61,8 +61,8 @@
   .gt{background:var(--amber-bg);color:var(--amber)}
   .gl{background:var(--plum-bg);color:var(--plum)}
   .gr{background:var(--warm-bg);color:var(--warm)}
-  /* vertical dividers between days */
-  .gantt td:nth-child(3n+6),.gantt th:nth-child(3n+6){border-left:3px solid #d0cdc8}
+  /* vertical dividers between days (D2-D6) */
+  .gantt col.day-div{border-left:3px solid #d0cdc8}
   .gn{color:#ccc;text-align:center;font-size:clamp(11px,3vw,14px);padding-top:12px}
   .gantt .cell.night-cell{background:#f5f0e8;color:var(--warm);min-height:24px;font-size:clamp(8px,2vw,9px)}
 
@@ -189,6 +189,12 @@
       <span class="lc">留守儿童</span><span class="lm">民宿主</span><span class="lt">茶农/电商</span><span class="ll">农户/普法</span><span class="lr">后勤</span>
     </div>
     <table class="gantt">
+      <colgroup>
+        <col style="width:55px"><col style="width:24px">
+        <col span="3"><col span="3" class="day-div"><col span="3" class="day-div">
+        <col span="3" class="day-div"><col span="3" class="day-div">
+        <col span="3" class="day-div"><col span="3">
+      </colgroup>
       <thead>
         <tr>
           <th></th><th></th>
