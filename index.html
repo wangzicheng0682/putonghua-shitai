@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache">
 <title>石台县推普+普法 · 执行策划案</title>
 <style>
   :root {
@@ -470,7 +471,7 @@
 <script>
 function sw(n){document.querySelectorAll('.tp').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tn button').forEach(b=>b.classList.remove('on'));document.getElementById('tp-'+n).classList.add('on');document.querySelector('button[onclick="sw(\'"+n+"\')"]').classList.add('on')}
 function jumpDay(n){
-  document.querySelectorAll('#stratBar .ph').forEach((p,i)=>{p.classList.toggle('on',i===n)});
+  /* stratBar removed */
   var el=document.getElementById('daySc'+n); if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
   document.querySelectorAll('.gantt tbody td').forEach(t=>t.style.background='');
   if(n===0){var r=document.querySelectorAll('.gantt tbody tr'); if(r[0]){var tds=r[0].querySelectorAll('td'); for(var i=0;i<Math.min(6,tds.length);i++)tds[i].style.background='#fffde7'}}
