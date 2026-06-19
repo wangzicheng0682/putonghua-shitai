@@ -46,7 +46,10 @@
   .gantt{width:100%;border-collapse:collapse;font-size:clamp(9px,2.5vw,11px);min-width:900px}
   .gantt thead th{text-align:center;padding:clamp(4px,1vw,6px) 3px;font-size:clamp(8px,2vw,10px);color:var(--mt);border-bottom:2px solid #e8e8e8;font-weight:600}
   .gantt thead th.day-col{font-size:clamp(11px,2.8vw,14px);color:var(--tx);font-weight:800}
-  .gantt thead th.sub{font-size:clamp(7px,1.8vw,9px);font-weight:400;color:var(--mt);width:clamp(38px,10vw,50px)}
+  .gantt thead th.sub{font-size:clamp(7px,1.8vw,9px);font-weight:400;color:var(--mt);width:clamp(38px,10vw,50px);border-left:1px dashed rgba(0,0,0,.06)}
+  .gantt thead th.sub:first-of-type{border-left:none}
+  /* override dashed with solid day divider */
+  .gantt col.day-div{border-left:3px solid #d0cdc8}
   .gantt tbody td{padding:4px 3px;vertical-align:top;border-bottom:1px solid #f5f5f5}
   .gantt tbody tr.row-divider td{border-bottom:2px solid #e0e0e0}
   .gantt .row-label{font-weight:700;font-size:clamp(9px,2.2vw,11px);padding:8px 4px 8px 2px;white-space:nowrap;text-align:right;width:55px}
@@ -193,9 +196,10 @@
     <table class="gantt">
       <colgroup>
         <col style="width:55px"><col style="width:24px">
-        <col span="3"><col span="3" class="day-div"><col span="3" class="day-div">
+        <col span="3"><col span="3" class="day-div">
         <col span="3" class="day-div"><col span="3" class="day-div">
-        <col span="3" class="day-div"><col span="3">
+        <col span="3" class="day-div"><col span="3" class="day-div">
+        <col span="3">
       </colgroup>
       <thead>
         <tr>
