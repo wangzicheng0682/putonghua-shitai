@@ -38,38 +38,40 @@
   .hd .meta span{background:var(--ca);padding:3px 8px;border-radius:10px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
 
   /* GANTT */
-  .gantt-wrap{background:var(--ca);border-radius:10px;padding:clamp(10px,2.5vw,14px) 10px 10px;box-shadow:0 1px 3px rgba(0,0,0,.04);overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px;position:relative}
+  .gantt-wrap{background:var(--ca);border-radius:14px;padding:clamp(10px,2.5vw,14px) 10px 10px;box-shadow:0 4px 16px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04);overflow-x:auto;-webkit-overflow-scrolling:touch;margin-bottom:14px;position:relative}
   .gantt-wrap::after{content:'← 左右滑动 →';display:block;text-align:center;font-size:10px;color:var(--mt);padding:6px 0 0}
   @media(min-width:1000px){.gantt-wrap::after{display:none}}
   .gantt-wrap h3{font-size:clamp(12px,3.5vw,14px);margin-bottom:10px;padding-left:4px}
   .gantt-wrap h3 small{font-size:clamp(10px,2.5vw,11px);color:var(--mt);font-weight:400}
   .gantt{width:100%;border-collapse:collapse;font-size:clamp(9px,2.5vw,11px);min-width:900px}
   .gantt thead th{text-align:center;padding:clamp(4px,1vw,6px) 3px;font-size:clamp(8px,2vw,10px);color:var(--mt);border-bottom:2px solid #e8e8e8;font-weight:600}
-  .gantt thead th.day-col{font-size:clamp(10px,2.5vw,12px);color:var(--tx)}
+  .gantt thead th.day-col{font-size:clamp(11px,2.8vw,14px);color:var(--tx);font-weight:800}
   .gantt thead th.sub{font-size:clamp(7px,1.8vw,9px);font-weight:400;color:var(--mt);width:clamp(38px,10vw,50px)}
   .gantt tbody td{padding:4px 3px;vertical-align:top;border-bottom:1px solid #f5f5f5}
   .gantt tbody tr.row-divider td{border-bottom:2px solid #e0e0e0}
   .gantt .row-label{font-weight:700;font-size:clamp(9px,2.2vw,11px);padding:8px 4px 8px 2px;white-space:nowrap;text-align:right;width:55px}
   .gantt .time-label{font-size:clamp(8px,2vw,9px);color:var(--mt);text-align:center;padding:4px 1px;width:24px;white-space:nowrap}
-  .gantt .cell{min-height:clamp(32px,8vw,40px);padding:clamp(3px,1vw,5px) clamp(4px,1vw,6px);border-radius:5px;font-size:clamp(8px,2vw,10px);line-height:1.45}
-  .gantt .cell b{font-size:clamp(9px,2.2vw,11px);display:block;margin-bottom:1px}
-  .gantt .cell .sub{font-size:clamp(7px,1.8vw,9px);color:inherit;opacity:.85}
-  .gantt .cell .loc{font-size:clamp(7px,1.8vw,9px);opacity:.8}
+  .gantt .cell{min-height:clamp(32px,8vw,40px);padding:clamp(4px,1vw,6px) clamp(5px,1vw,7px);border-radius:8px;font-size:clamp(8px,2vw,10px);line-height:1.55;box-shadow:0 2px 6px rgba(0,0,0,.06)}
+  .gantt .cell b{font-size:clamp(9px,2.2vw,11px);display:block;margin-bottom:2px;letter-spacing:.01em}
+  .gantt .cell .sub{font-size:clamp(7px,1.8vw,9px);color:inherit;opacity:.8}
+  .gantt .cell .loc{font-size:clamp(7px,1.8vw,9px);opacity:.75}
+  .gantt .cell .loc::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:currentColor;margin-right:3px;vertical-align:middle}
+  .gantt .cell .sub::before{content:'';display:inline-block;width:4px;height:4px;border-radius:1px;background:currentColor;margin-right:3px;vertical-align:middle;opacity:.6}
   .gantt .empty{min-height:clamp(32px,8vw,40px)}
-  .gc{background:var(--green-bg);color:var(--green)}
-  .gm{background:var(--blue-bg);color:var(--blue)}
-  .gt{background:var(--amber-bg);color:var(--amber)}
-  .gl{background:var(--plum-bg);color:var(--plum)}
-  .gr{background:var(--warm-bg);color:var(--warm)}
+  .gc{background:linear-gradient(135deg, var(--green-bg), #dcebe3);color:var(--green)}
+  .gm{background:linear-gradient(135deg, var(--blue-bg), #dce8ed);color:var(--blue)}
+  .gt{background:linear-gradient(135deg, var(--amber-bg), #ede4d5);color:var(--amber)}
+  .gl{background:linear-gradient(135deg, var(--plum-bg), #e8e2ea);color:var(--plum)}
+  .gr{background:linear-gradient(135deg, var(--warm-bg), #e8e5e2);color:var(--warm)}
   /* vertical dividers between days (D2-D6) */
   .gantt col.day-div{border-left:3px solid #d0cdc8}
   .gn{color:#ccc;text-align:center;font-size:clamp(11px,3vw,14px);padding-top:12px}
-  .gantt .cell.night-cell{background:#f5f0e8;color:var(--warm);min-height:24px;font-size:clamp(8px,2vw,9px)}
+  .gantt .cell.night-cell{background:linear-gradient(135deg,#f8f5f1,#f0ece6);color:var(--warm);min-height:24px;font-size:clamp(8px,2vw,9px);border-radius:6px;box-shadow:inset 0 1px 2px rgba(0,0,0,.03)}
 
   /* LEGEND */
-  .legend{display:flex;gap:clamp(8px,2vw,14px);flex-wrap:wrap;font-size:clamp(9px,2vw,10px);color:var(--mt);margin-bottom:10px;padding:0 4px}
-  .legend span{display:inline-flex;align-items:center;gap:4px}
-  .legend span::before{content:'';display:inline-block;width:12px;height:12px;border-radius:3px}
+  .legend{display:flex;gap:clamp(6px,1.5vw,10px);flex-wrap:wrap;font-size:clamp(9px,2vw,10px);color:var(--mt);margin-bottom:10px;padding:0 4px}
+  .legend span{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:20px;background:var(--ca);box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .legend span::before{content:'';display:inline-block;width:10px;height:10px;border-radius:50%}
   .legend .lc::before{background:var(--green-bg);border:1px solid var(--green)}
   .legend .lm::before{background:var(--blue-bg);border:1px solid var(--blue)}
   .legend .lt::before{background:var(--amber-bg);border:1px solid var(--amber)}
@@ -87,7 +89,7 @@
   .obj4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;margin-bottom:14px}
   @media(max-width:640px){.obj4{grid-template-columns:1fr 1fr}}
   @media(max-width:400px){.obj4{grid-template-columns:1fr}}
-  .oc{background:var(--ca);border-radius:10px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.03);border-top:3px solid}
+  .oc{background:var(--ca);border-radius:14px;padding:14px;box-shadow:0 4px 16px rgba(0,0,0,.05),0 1px 3px rgba(0,0,0,.03);border-top:3px solid}
   .oc.o1{border-top-color:var(--green)}
   .oc.o2{border-top-color:var(--blue)}
   .oc.o3{border-top-color:var(--amber)}
@@ -104,7 +106,7 @@
   .oc .otools span{font-size:9px;padding:2px 6px;border-radius:6px;background:var(--blue-bg);color:var(--blue)}
 
   /* CARDS */
-  .card{background:var(--ca);border-radius:10px;padding:clamp(10px,2.5vw,16px);box-shadow:0 1px 3px rgba(0,0,0,.03);font-size:clamp(11px,2.8vw,12px);margin-bottom:10px}
+  .card{background:var(--ca);border-radius:14px;padding:clamp(10px,2.5vw,16px);box-shadow:0 4px 14px rgba(0,0,0,.05),0 1px 2px rgba(0,0,0,.03);font-size:clamp(11px,2.8vw,12px);margin-bottom:10px}
   .card h3{font-size:clamp(12px,3vw,13px);margin-bottom:8px}
   .card table{width:100%;border-collapse:collapse;font-size:clamp(10px,2.5vw,11px)}
   .card th{text-align:left;padding:clamp(4px,1vw,6px) clamp(5px,1.5vw,8px);border-bottom:2px solid #e0e0e0;font-size:9px;color:var(--mt);white-space:nowrap}
@@ -117,7 +119,7 @@
   /* DASHBOARD */
   .dash{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-bottom:12px}
   @media(max-width:640px){.dash{grid-template-columns:1fr 1fr}}
-  .dash .db{background:var(--ca);border-radius:8px;padding:clamp(8px,2vw,10px);text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .dash .db{background:var(--ca);border-radius:10px;padding:clamp(8px,2vw,10px);text-align:center;box-shadow:0 4px 14px rgba(0,0,0,.05),0 1px 2px rgba(0,0,0,.03)}
   .dash .db .n{font-size:clamp(14px,3.5vw,18px);font-weight:800}
   .dash .db .r{font-size:clamp(9px,2vw,10px);color:var(--mt)}
   .dash .db .bar-bg{height:4px;background:#eee;border-radius:2px;margin-top:4px;overflow:hidden}
@@ -143,11 +145,11 @@
   .divider{border-top:1px dashed #ddd;margin:10px 0}
 
   /* schedule day card */
-  .day{margin-bottom:clamp(10px,2.5vw,16px);background:var(--ca);border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03)}
+  .day{margin-bottom:clamp(10px,2.5vw,16px);background:var(--ca);border-radius:14px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,.05),0 1px 2px rgba(0,0,0,.03)}
   .day .dh{padding:clamp(8px,2vw,10px) clamp(10px,2.5vw,16px);font-weight:700;font-size:clamp(11px,3vw,13px);display:flex;align-items:center;gap:8px}
   .day .dh .dn{display:inline-flex;align-items:center;justify-content:center;width:clamp(24px,6vw,28px);height:clamp(24px,6vw,28px);border-radius:50%;color:#fff;font-size:clamp(10px,2.5vw,12px);flex-shrink:0}
   .sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:6px;padding:0 clamp(6px,1.5vw,10px) clamp(6px,1.5vw,10px)}
-  .sl{border-radius:8px;overflow:hidden;font-size:clamp(10px,2.5vw,12px)}
+  .sl{border-radius:12px;overflow:hidden;font-size:clamp(10px,2.5vw,12px);box-shadow:0 2px 8px rgba(0,0,0,.04)}
   .sl .sh{padding:clamp(5px,1.5vw,7px) clamp(8px,2vw,12px);font-weight:700;font-size:clamp(9px,2.2vw,10px);display:flex;align-items:center;gap:5px}
   .sl .sb{padding:clamp(6px,1.5vw,10px) clamp(8px,2vw,12px)}
   .sl .sb div{margin-bottom:2px}
@@ -223,11 +225,11 @@
           <td class="row-label"><span class="badge bc">留守儿童</span></td>
           <td class="time-label">目标<br>20+人</td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gc"><b>集中活动①</b><span class="sub">App普测+绕口令+规范字</span><span class="loc">📍村实践站</span><span class="sub">👤教学+宣传</span></div></td>
+          <td><div class="cell gc"><b>集中活动①</b><span class="sub">App普测+绕口令+规范字</span><span class="loc">村实践站</span><span class="sub">教学+宣传</span></div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gc"><b>入户顺带</b><span class="sub">遇儿童就补测+绕口令</span><span class="loc">📍入户途中</span><span class="sub">👤入户组顺带</span></div></td>
+          <td><div class="cell gc"><b>入户顺带</b><span class="sub">遇儿童就补测+绕口令</span><span class="loc">入户途中</span><span class="sub">入户组顺带</span></div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gc"><b>集中活动②结业</b><span class="sub">动画配音+朗诵展示+发奖品</span><span class="loc">📍村实践站</span><span class="sub">👤教学+宣传+调研</span></div></td>
+          <td><div class="cell gc"><b>集中活动②结业</b><span class="sub">动画配音+朗诵展示+发奖品</span><span class="loc">村实践站</span><span class="sub">教学+宣传+调研</span></div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
         </tr>
         <!-- 民宿 -->
@@ -235,13 +237,13 @@
           <td class="row-label"><span class="badge bm">民宿主</span></td>
           <td class="time-label">目标<br>15+户</td>
           <td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gm"><b>入户摸底</b><span class="sub">闲聊记痛点·不培训不问卷</span><span class="loc">📍大山村5~8户</span><span class="sub">👤教学+调研</span></div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gm"><b>入户摸底</b><span class="sub">闲聊记痛点·不培训不问卷</span><span class="loc">大山村5~8户</span><span class="sub">教学+调研</span></div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gm"><b>话术培训</b><span class="sub">10句接待话术·跟读→录音→纠音</span><span class="loc">📍入户3~5户</span><span class="sub">👤教学+调研搭班</span></div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gm"><b>话术培训</b><span class="sub">10句接待话术·跟读→录音→纠音</span><span class="loc">入户3~5户</span><span class="sub">教学+调研搭班</span></div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gm"><b>话术培训（续）</b><span class="sub">覆盖Day2未走到的户</span><span class="loc">📍入户</span><span class="sub">👤教学+调研</span></div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gm"><b>话术培训（续）</b><span class="sub">覆盖Day2未走到的户</span><span class="loc">入户</span><span class="sub">教学+调研</span></div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gm"><b>直播培训</b><span class="sub">上台讲3分钟·录像纠音+AI配音</span><span class="loc">📍集中培训点</span><span class="sub">👤教学+宣传</span></div></td>
+          <td><div class="cell gm"><b>直播培训</b><span class="sub">上台讲3分钟·录像纠音+AI配音</span><span class="loc">集中培训点</span><span class="sub">教学+宣传</span></div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
         </tr>
         <!-- 茶农 -->
@@ -250,9 +252,9 @@
           <td class="time-label">目标<br>10+人</td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gt"><b>话术+工具培训</b><span class="sub">直播回放找问题→5句卖点话术训练</span><span class="sub">教提词器App+剪映字幕</span><span class="loc">📍茶园/电商基地</span><span class="sub">👤教学+宣传·调研做问卷</span></div></td>
+          <td><div class="cell gt"><b>话术+工具培训</b><span class="sub">直播回放找问题→5句卖点话术训练</span><span class="sub">教提词器App+剪映字幕</span><span class="loc">茶园/电商基地</span><span class="sub">教学+宣传·调研做问卷</span></div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gt"><b>上台实战</b><span class="sub">每人讲3分钟·录像→回放纠音</span><span class="sub">教AI配音备用方案</span><span class="loc">📍集中培训点</span><span class="sub">👤教学+宣传</span></div></td>
+          <td><div class="cell gt"><b>上台实战</b><span class="sub">每人讲3分钟·录像→回放纠音</span><span class="sub">教AI配音备用方案</span><span class="loc">集中培训点</span><span class="sub">教学+宣传</span></div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
         </tr>
         <!-- 农户/普法 -->
@@ -262,11 +264,11 @@
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gl"><b>搭车夜校</b><span class="sub">普法短剧5分钟</span><span class="sub">普法句子跟读练普通话</span><span class="sub">推广小程序</span><span class="loc">📍夜校点</span><span class="sub">👤全体</span></div></td>
-          <td><div class="cell gl"><b>全天入户（分2路）</b><span class="sub">一次入户三件事：</span><span class="sub">①问卷测评 ②普法讲解 ③小程序</span><span class="loc">📍大山村+辐射村</span><span class="sub">👤每路教学1+调研1</span></div></td>
+          <td><div class="cell gl"><b>搭车夜校</b><span class="sub">普法短剧5分钟</span><span class="sub">普法句子跟读练普通话</span><span class="sub">推广小程序</span><span class="loc">夜校点</span><span class="sub">全体</span></div></td>
+          <td><div class="cell gl"><b>全天入户（分2路）</b><span class="sub">一次入户三件事：</span><span class="sub">①问卷测评 ②普法讲解 ③小程序</span><span class="loc">大山村+辐射村</span><span class="sub">每路教学1+调研1</span></div></td>
           <td><div class="cell gl"><b>全天入户（续）</b><span class="sub">同上午</span></div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gl"><b>补漏入户</b><span class="sub">补问卷·补普法·补小程序</span><span class="loc">📍未覆盖户/偏远户</span><span class="sub">👤教学+调研</span></div></td>
+          <td><div class="cell gl"><b>补漏入户</b><span class="sub">补问卷·补普法·补小程序</span><span class="loc">未覆盖户/偏远户</span><span class="sub">教学+调研</span></div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
         </tr>
         <!-- 对接/后勤 -->
@@ -274,10 +276,10 @@
           <td class="row-label" style="color:var(--warm)">对接/后勤</td>
           <td class="time-label">队长</td>
           <td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gr"><b>村委对接</b><span class="sub">拿名单·问儿童托管·问夜校</span><span class="loc">📍村委会</span><span class="sub">👤队长+1人</span></div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gr"><b>村委对接</b><span class="sub">拿名单·问儿童托管·问夜校</span><span class="loc">村委会</span><span class="sub">队长+1人</span></div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gr"><b>村委座谈</b><span class="sub">汇报发现·移交物料</span><span class="loc">📍村委会</span><span class="sub">👤队长+1人</span></div></td>
+          <td><div class="cell gr"><b>村委座谈</b><span class="sub">汇报发现·移交物料</span><span class="loc">村委会</span><span class="sub">队长+1人</span></div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
         </tr>
         <!-- 复盘 -->
@@ -298,22 +300,22 @@
   <!-- 4 Object Cards -->
   <div class="obj4">
     <div class="oc o1">
-      <div class="oicon">👧</div><div class="oname">留守儿童</div><div class="oloc">📍 村实践站 / 入户</div>
+      <div class="oicon">👧</div><div class="oname">留守儿童</div><div class="oloc"> 村实践站 / 入户</div>
       <div class="otags"><span class="tg">推普：测评+绕口令+规范字+配音</span></div>
       <div class="otools"><span>🛠 测评App</span><span>📄 绕口令卡</span><span>✏ 田字格纸</span></div>
     </div>
     <div class="oc o2">
-      <div class="oicon">🏠</div><div class="oname">民宿主</div><div class="oloc">📍 大山村入户</div>
+      <div class="oicon">🏠</div><div class="oname">民宿主</div><div class="oloc"> 大山村入户</div>
       <div class="otags"><span class="ta">推普：10句接待话术跟读纠正</span><span class="tp">普法：小程序</span></div>
       <div class="otools"><span>🛠 手机录音</span><span>📋 话术卡（塑封）</span></div>
     </div>
     <div class="oc o3">
-      <div class="oicon">🍵</div><div class="oname">茶农/电商</div><div class="oloc">📍 茶园 / 直播基地</div>
+      <div class="oicon">🍵</div><div class="oname">茶农/电商</div><div class="oloc"> 茶园 / 直播基地</div>
       <div class="otags"><span class="ta">推普：直播话术+卖点表达</span><span class="tp">普法：小程序</span></div>
       <div class="otools"><span>🛠 提词器App</span><span>🎬 剪映</span><span>🤖 AI配音</span></div>
     </div>
     <div class="oc o4">
-      <div class="oicon">⚖</div><div class="oname">农户/村民</div><div class="oloc">📍 入户 / 夜校点</div>
+      <div class="oicon">⚖</div><div class="oname">农户/村民</div><div class="oloc"> 入户 / 夜校点</div>
       <div class="otags"><span class="ta">推普：问卷+普法句子跟读</span><span class="tp">普法：短剧+折页</span></div>
       <div class="otools"><span>🛠 普法小程序</span><span>📄 纸质问卷</span><span>📋 折页</span></div>
     </div>
