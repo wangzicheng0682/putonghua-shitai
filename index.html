@@ -54,13 +54,11 @@
   .gantt tbody tr.row-divider td{border-bottom:2px solid #e0e0e0}
   .gantt .row-label{font-weight:700;font-size:clamp(9px,2.2vw,11px);padding:8px 4px 8px 2px;white-space:nowrap;text-align:right;width:55px}
   .gantt .time-label{font-size:clamp(8px,2vw,9px);color:var(--mt);text-align:center;padding:4px 1px;width:24px;white-space:nowrap}
-  .gantt .cell{min-height:clamp(32px,8vw,40px);padding:clamp(4px,1vw,6px) clamp(5px,1vw,7px);border-radius:8px;font-size:clamp(8px,2vw,10px);line-height:1.55;box-shadow:0 2px 6px rgba(0,0,0,.06)}
-  .gantt .cell b{font-size:clamp(9px,2.2vw,11px);display:block;margin-bottom:2px;letter-spacing:.01em}
-  .gantt .cell .sub{font-size:clamp(7px,1.8vw,9px);color:inherit;opacity:.8}
-  .gantt .cell .loc{font-size:clamp(7px,1.8vw,9px);opacity:.75}
-  .gantt .cell .loc::before{content:'';display:inline-block;width:5px;height:5px;border-radius:50%;background:currentColor;margin-right:3px;vertical-align:middle}
-  .gantt .cell .sub::before{content:'';display:inline-block;width:4px;height:4px;border-radius:1px;background:currentColor;margin-right:3px;vertical-align:middle;opacity:.6}
-  .gantt .empty{min-height:clamp(32px,8vw,40px)}
+  .gantt .cell{min-height:clamp(44px,12vw,56px);padding:clamp(7px,2vw,10px) clamp(8px,2.5vw,12px);border-radius:10px;font-size:clamp(10px,2.8vw,13px);line-height:1.5;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+  .gantt .cell b{font-size:clamp(11px,3.2vw,14px);display:block;margin-bottom:3px}
+  .gantt .cell .sub{font-size:clamp(9px,2.5vw,12px);color:inherit;opacity:.85;display:block;margin-top:2px}
+  .gantt .cell .sub::before{content:'';display:inline-block;width:4px;height:4px;border-radius:50%;background:currentColor;margin-right:4px;vertical-align:middle;opacity:.5}
+  .gantt .empty{min-height:clamp(44px,12vw,56px)}
   .gc{background:linear-gradient(135deg, var(--green-bg), #dcebe3);color:var(--green)}
   .gm{background:linear-gradient(135deg, var(--blue-bg), #dce8ed);color:var(--blue)}
   .gt{background:linear-gradient(135deg, var(--amber-bg), #ede4d5);color:var(--amber)}
@@ -228,11 +226,11 @@
           <td class="row-label"><span class="badge bc">留守儿童</span></td>
           <td class="time-label">目标<br>20+人</td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gc"><b>入户顺带</b><span class="sub">家中儿童播放动画+App快测</span><span class="loc">严家古村</span><span class="sub">入户组顺带</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gc"><b>商户子女</b><span class="sub">景区商户子女播放动画跟读</span><span class="loc">牯牛降景区</span><span class="sub">教学组顺带</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gc"><b>入户+集市儿童</b><span class="sub">入户家中儿童动画跟读</span><span class="sub">集市平板循环播放动画</span><span class="loc">社区+乡镇集市</span><span class="sub">教学+宣传</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gc"><b>入户顺带</b><span class="sub">大演入户遇儿童App快测</span><span class="loc">大演乡</span><span class="sub">入户组顺带</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gc"><b>查漏顺带</b><span class="sub">偏远村儿童补测</span><span class="loc">矶滩/横渡</span><span class="sub">入户组顺带</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gc"><b>入户顺带</b><span class="sub">严家古村 · 动画+App快测</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gc"><b>商户子女</b><span class="sub">牯牛降 · 动画跟读</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gc"><b>入户+集市</b><span class="sub">社区+集市 · 动画跟读</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gc"><b>入户顺带</b><span class="sub">大演乡 · App快测</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gc"><b>查漏顺带</b><span class="sub">矶滩/横渡 · 儿童补测</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
         </tr>
         <!-- 民宿 -->
@@ -240,12 +238,12 @@
           <td class="row-label"><span class="badge bm">民宿主</span></td>
           <td class="time-label">目标<br>15+户</td>
           <td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gm"><b>全队实操演练</b><span class="sub">话术卡模拟·App测评流程</span><span class="loc">驻地</span><span class="sub">全体</span></div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gm"><b>严家古村民宿</b><span class="sub">问卷+App测评+话术纠音</span><span class="loc">严家古村</span><span class="sub">教学+调研</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gm"><b>景区农家乐</b><span class="sub">文旅问卷+讲解词逐句纠音</span><span class="sub">普法小程序·商户子女动画</span><span class="loc">牯牛降景区</span><span class="sub">教学+宣传</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gm"><b>全队演练</b><span class="sub">驻地 · 话术卡+App流程</span></div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gm"><b>古村民宿</b><span class="sub">严家古村 · 问卷+话术纠音</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gm"><b>景区农家乐</b><span class="sub">牯牛降 · 讲解词纠音+普法</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gm"><b>康养民宿经营者</b><span class="sub">产业问卷+接待用语纠音</span><span class="sub">话术卡培训+普法小程序</span><span class="loc">大山村</span><span class="sub">教学+调研</span></div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gm"><b>康养民宿</b><span class="sub">大山村 · 问卷+话术+普法</span></div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
         </tr>
         <!-- 茶农 -->
@@ -255,10 +253,10 @@
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gt"><b>硒茶商铺+电商直播</b><span class="sub">产业问卷+App测评定级</span><span class="sub">高频字词纠错+提词器+剪映</span><span class="loc">仙寓山</span><span class="sub">教学+调研</span></div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gt"><b>硒茶+电商</b><span class="sub">仙寓山 · 问卷+字词纠错+提词器</span></div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gt"><b>直播青年+种植大户</b><span class="sub">带货字词专项矫正</span><span class="sub">上台录像→回放纠音→AI配音</span><span class="loc">大山村</span><span class="sub">教学+宣传</span></div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gt"><b>直播+种植大户</b><span class="sub">大山村 · 上台录像+AI配音</span></div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
         </tr>
         <!-- 农户/普法 -->
@@ -266,28 +264,28 @@
           <td class="row-label"><span class="badge bl">农户/普法</span></td>
           <td class="time-label">目标<br>150+问卷<br>50+小程序</td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gl"><b>严家古村入户</b><span class="sub">问卷登记+App测评</span><span class="sub">普法小程序推广</span><span class="loc">严家古村</span><span class="sub">教学+调研</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gl"><b>古村入户</b><span class="sub">严家古村 · 问卷+测评+小程序</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gl"><b>社区入户</b><span class="sub">问卷+测评+小程序</span><span class="loc">县城社区</span><span class="sub">分2路</span></div></td>
-          <td><div class="cell gl"><b>集市宣传服务台</b><span class="sub">扫码问卷+普法答题</span><span class="sub">平板放动画+现场测音</span><span class="loc">乡镇集市</span><span class="sub">全体</span></div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gl"><b>大演乡逐户</b><span class="sub">问卷+测评+小程序</span><span class="sub">公共用语规范解读</span><span class="loc">大演乡各村</span><span class="sub">分2路</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gl"><b>偏远村查漏</b><span class="sub">补问卷·补测评</span><span class="sub">收集小程序反馈</span><span class="loc">矶滩/横渡</span><span class="sub">教学+调研</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gl"><b>社区入户</b><span class="sub">县城 · 问卷+测评+小程序</span></div></td>
+          <td><div class="cell gl"><b>集市摆摊</b><span class="sub">乡镇集市 · 扫码+答题+动画</span></div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gl"><b>大演入户</b><span class="sub">大演乡各村 · 问卷+测评+普法</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gl"><b>查漏补缺</b><span class="sub">矶滩/横渡 · 补问卷+反馈</span></div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
         </tr>
         <!-- 对接/后勤 -->
         <tr>
           <td class="row-label" style="color:var(--warm)">对接/后勤</td>
           <td class="time-label">队长</td>
-          <td><div class="cell gr"><b>乘车抵达</b><span class="sub">入住安顿·卸物资</span><span class="loc">石台县城</span></div></td>
-          <td><div class="cell gr"><b>县局对接</b><span class="sub">乡村振兴局/文旅局/语委/司法所</span><span class="sub">确认点位·递交公函</span><span class="loc">县政府</span><span class="sub">队长+1</span></div></td><td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gr"><b>乘车抵达</b><span class="sub">石台县城 · 入住安顿</span></div></td>
+          <td><div class="cell gr"><b>县局对接</b><span class="sub">县政府 · 递交公函确认点位</span></div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gr"><b>文化馆</b><span class="sub">走访非遗传承人</span><span class="sub">专项问卷+普法</span><span class="loc">县文化馆</span><span class="sub">教学+调研</span></div></td>
+          <td><div class="cell gr"><b>文化馆</b><span class="sub">走访非遗传承人+问卷</span></div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
           <td class="empty"><div class="gn">—</div></td><td class="empty"><div class="gn">—</div></td>
-          <td><div class="cell gr"><b>数据归档</b><span class="sub">导出汇总+分类打包</span><span class="sub">准备汇报材料</span><span class="loc">驻地</span><span class="sub">各组</span></div></td>
-          <td><div class="cell gr"><b>县局座谈汇报</b><span class="sub">汇报成效·移交台账</span><span class="sub">确认长效对接</span><span class="loc">县局会议室</span><span class="sub">全员</span></div></td>
+          <td><div class="cell gr"><b>数据归档</b><span class="sub">导出汇总·准备汇报材料</span></div></td>
+          <td><div class="cell gr"><b>县局座谈</b><span class="sub">汇报成效·移交台账</span></div></td>
           <td><div class="cell gr"><b>返程</b><span class="sub">整顿·乘车返回</span></div></td><td class="empty"><div class="gn">—</div></td>
         </tr>
         <!-- 复盘 -->
