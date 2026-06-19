@@ -2,412 +2,575 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>石台县推普+普法 · 执行策划</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>石台县推普+普法 · 执行策划案</title>
 <style>
   :root {
     --ch:#2e7d32; --chb:#e8f5e9; --chl:#c8e6c9;
     --ms:#1565c0; --msb:#e3f2fd; --msl:#bbdefb;
     --te:#e65100; --teb:#fff3e0; --tel:#ffe0b2;
     --lw:#6a1b9a; --lwb:#f3e5f5; --lwl:#e1bee7;
-    --re:#546e7a; --reb:#eceff1;
-    --bg:#f5f3ef; --ca:#fff; --tx:#1a1a1a; --mt:#8a8a8a; --ln:#e8e5de;
-    --fs:clamp(13px,3.7vw,15px);
-    --fs-sm:clamp(11px,3.2vw,13px);
-    --fs-xs:clamp(10px,2.8vw,11px);
+    --re:#546e7a; --reb:#eceff1; --rel:#cfd8dc;
+    --bg:#f2f0eb; --ca:#fff; --tx:#263238; --mt:#90a4ae;
   }
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  body{
-    font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;
-    background:var(--bg);color:var(--tx);font-size:var(--fs);line-height:1.5;
-    padding-bottom:80px;
-    -webkit-tap-highlight-color:transparent;
-    touch-action:manipulation;
-  }
-  .wrap{max-width:800px;margin:0 auto;padding:clamp(8px,2vw,16px)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--tx);line-height:1.5;padding:14px}
+  .wrap{max-width:1300px;margin:0 auto}
 
-  .hdr{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:clamp(8px,2vw,12px);flex-wrap:wrap}
-  .hdr h1{font-size:clamp(16px,4.5vw,20px);font-weight:700;white-space:nowrap}
-  .hdr .badges{display:flex;gap:6px;flex-wrap:wrap}
-  .hdr .badges span{font-size:var(--fs-xs);padding:3px 8px;border-radius:10px;background:var(--ca);color:var(--mt);white-space:nowrap}
+  /* TABS */
+  .tn{display:flex;gap:4px;margin-bottom:12px;position:sticky;top:0;z-index:10;background:var(--bg);padding:6px 0;flex-wrap:wrap}
+  .tn button{border:none;padding:7px 14px;border-radius:7px;font-size:12px;cursor:pointer;background:var(--ca);color:var(--mt);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.03);white-space:nowrap}
+  .tn button:hover{color:var(--tx)}
+  .tn button.on{background:#263238;color:#fff}
+  .tp{display:none}
+  .tp.on{display:block}
 
-  .week{display:flex;gap:4px;margin-bottom:clamp(10px,3vw,14px);overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:2px 0}
-  .week::-webkit-scrollbar{display:none}
-  .week button{flex:0 0 auto;min-width:clamp(40px,11vw,56px);padding:clamp(6px,1.5vw,10px) 4px;border:none;border-radius:8px;font-size:var(--fs-xs);cursor:pointer;background:var(--ca);color:var(--mt);text-align:center;font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.04);transition:.15s}
-  .week button .d{font-size:clamp(14px,3.8vw,18px);font-weight:800;display:block;margin-bottom:1px}
-  .week button.on{background:var(--tx);color:#fff}
-  .week button.on .d{color:#fff}
+  .hd{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:10px}
+  .hd h1{font-size:20px}
+  .hd .meta{font-size:11px;color:var(--mt);display:flex;gap:8px;flex-wrap:wrap}
+  .hd .meta span{background:var(--ca);padding:3px 10px;border-radius:10px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
 
-  .page{display:none}
-  .page.on{display:block}
+  /* ==================== GANTT ==================== */
+  .gantt-wrap{background:var(--ca);border-radius:10px;padding:14px 10px 10px;box-shadow:0 1px 3px rgba(0,0,0,.04);overflow-x:auto;margin-bottom:14px}
+  .gantt-wrap h3{font-size:14px;margin-bottom:10px;padding-left:4px}
+  .gantt-wrap h3 small{font-size:11px;color:var(--mt);font-weight:400}
+  .gantt{width:100%;border-collapse:collapse;font-size:11px;min-width:900px}
+  .gantt thead th{text-align:center;padding:6px 4px;font-size:10px;color:var(--mt);border-bottom:2px solid #e8e8e8;font-weight:600}
+  .gantt thead th.day-col{font-size:12px;color:var(--tx)}
+  .gantt thead th.sub{font-size:9px;font-weight:400;color:var(--mt);width:50px}
+  .gantt tbody td{padding:4px 3px;vertical-align:top;border-bottom:1px solid #f5f5f5}
+  .gantt tbody tr.row-divider td{border-bottom:2px solid #e0e0e0}
+  .gantt .row-label{font-weight:700;font-size:11px;padding:8px 8px 8px 4px;white-space:nowrap;text-align:right;width:70px}
+  .gantt .time-label{font-size:9px;color:var(--mt);text-align:center;padding:4px 2px;width:28px;white-space:nowrap}
+  .gantt .cell{min-height:40px;padding:5px 6px;border-radius:5px;font-size:10px;line-height:1.45}
+  .gantt .cell b{font-size:11px;display:block;margin-bottom:1px}
+  .gantt .cell .sub{font-size:9px;color:inherit;opacity:.85}
+  .gantt .cell .loc{font-size:9px;opacity:.8}
+  .gantt .empty{min-height:40px}
+  .gc{background:var(--chb);color:var(--ch)}
+  .gm{background:var(--msb);color:var(--ms)}
+  .gt{background:var(--teb);color:var(--te)}
+  .gl{background:var(--lwb);color:var(--lw)}
+  .gr{background:var(--reb);color:var(--re)}
+  .gn{color:#bbb;text-align:center;font-size:14px;padding-top:12px}
+  .gh{background:#fff9c4;color:#f57f17}
+  .gantt .cell.night-cell{background:#f5f0e8;color:var(--re);min-height:28px;font-size:9px}
 
-  .sec-title{font-size:var(--fs-sm);font-weight:700;margin:clamp(10px,3vw,14px) 0 8px;padding-left:4px;display:flex;align-items:center;gap:8px}
-  .sec-title .n{color:var(--mt);font-weight:400}
+  /* ==================== LEGEND ==================== */
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:10px;color:var(--mt);margin-bottom:10px;padding:0 4px}
+  .legend span{display:inline-flex;align-items:center;gap:4px}
+  .legend span::before{content:'';display:inline-block;width:12px;height:12px;border-radius:3px}
+  .legend .lc::before{background:var(--chb);border:1px solid var(--ch)}
+  .legend .lm::before{background:var(--msb);border:1px solid var(--ms)}
+  .legend .lt::before{background:var(--teb);border:1px solid var(--te)}
+  .legend .ll::before{background:var(--lwb);border:1px solid var(--lw)}
+  .legend .lr::before{background:var(--reb);border:1px solid var(--re)}
 
-  .qbars{display:flex;flex-direction:column;gap:6px;margin-bottom:clamp(10px,3vw,14px)}
-  .qb{background:var(--ca);border-radius:8px;padding:clamp(8px,2vw,10px) clamp(10px,2.5vw,14px);box-shadow:0 1px 2px rgba(0,0,0,.03);display:flex;align-items:center;gap:10px}
-  .qb .ico{font-size:18px;flex-shrink:0}
-  .qb .info{flex:1;min-width:0}
-  .qb .info .lbl{font-size:var(--fs-xs);font-weight:600}
-  .qb .info .bar-bg{height:6px;background:#eee;border-radius:3px;margin-top:3px;overflow:hidden}
-  .qb .info .bar-fill{height:100%;border-radius:3px;transition:width .5s}
-  .qb .val{font-size:var(--fs-sm);font-weight:800;flex-shrink:0}
-  .qb.q1 .bar-fill{background:var(--lw)} .qb.q1 .val{color:var(--lw)}
-  .qb.q2 .bar-fill{background:var(--ms)} .qb.q2 .val{color:var(--ms)}
-  .qb.q3 .bar-fill{background:var(--ch)} .qb.q3 .val{color:var(--ch)}
-  .qb.q4 .bar-fill{background:var(--te)} .qb.q4 .val{color:var(--te)}
+  /* ==================== TEAM+TARGETS ROW ==================== */
+  .strip{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-bottom:12px}
+  .strip .box{background:var(--ca);border-radius:8px;padding:10px;text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .strip .box .n{font-size:20px;font-weight:800}
+  .strip .box .r{font-size:10px;color:var(--mt)}
+  @media(max-width:640px){.strip{grid-template-columns:1fr 1fr}}
 
-  .team-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:clamp(10px,3vw,14px)}
-  .team-row .t{background:var(--ca);border-radius:8px;padding:clamp(8px,2vw,10px);text-align:center;box-shadow:0 1px 2px rgba(0,0,0,.03)}
-  .team-row .t .n{font-size:clamp(16px,4vw,20px);font-weight:800}
-  .team-row .t .r{font-size:var(--fs-xs);color:var(--mt)}
+  /* ==================== CARDS ==================== */
+  .card{background:var(--ca);border-radius:10px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.03);font-size:12px;margin-bottom:10px}
+  .card h3{font-size:13px;margin-bottom:8px}
+  .card table{width:100%;border-collapse:collapse;font-size:11px}
+  .card th{text-align:left;padding:6px 8px;border-bottom:2px solid #e0e0e0;font-size:10px;color:var(--mt);white-space:nowrap}
+  .card td{padding:6px 8px;border-bottom:1px solid #f2f2f2;vertical-align:top}
+  .card ul{list-style:none}
+  .card li{margin-bottom:3px;padding-left:12px;position:relative}
+  .card li::before{content:'–';position:absolute;left:0;color:var(--mt)}
+  .card .tag{font-size:10px;color:var(--mt);margin-top:6px;padding-top:6px;border-top:1px dashed #e8e8e8}
 
-  .day-card{background:var(--ca);border-radius:10px;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.04);overflow:hidden}
-  .day-card summary{list-style:none;padding:clamp(10px,2.5vw,14px);cursor:pointer;display:flex;align-items:center;gap:10px;user-select:none;min-height:44px}
-  .day-card summary::-webkit-details-marker{display:none}
-  .day-card summary::after{content:'▾';margin-left:auto;font-size:12px;color:var(--mt);transition:.2s}
-  details[open]>summary::after{transform:rotate(180deg)}
-  .day-card .dn{width:clamp(30px,8vw,36px);height:clamp(30px,8vw,36px);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:clamp(13px,3.5vw,15px);color:#fff;flex-shrink:0}
-  .day-card .dt{flex:1;min-width:0}
-  .day-card .dt .tl{font-weight:700;font-size:var(--fs-sm)}
-  .day-card .dt .sub{font-size:var(--fs-xs);color:var(--mt)}
-  .day-card .badges-row{display:flex;gap:3px;flex-wrap:wrap}
-  .day-card .badges-row span{font-size:9px;padding:2px 6px;border-radius:8px;font-weight:600;white-space:nowrap}
+  /* grid helpers */
+  .g2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+  .g4{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px}
+  @media(max-width:768px){.g2,.g3,.g4{grid-template-columns:1fr}}
 
-  .day-card .acts{padding:0 14px 12px}
-  .day-card .act{display:flex;align-items:flex-start;gap:10px;padding:8px 0;border-top:1px solid #f2f2f2;font-size:var(--fs-xs)}
-  .day-card .act .ai{font-size:16px;flex-shrink:0;width:22px;text-align:center;line-height:1.3}
-  .day-card .act .ab{flex:1;min-width:0}
-  .day-card .act .ab b{display:block;font-size:var(--fs-xs)}
-  .day-card .act .ab .det{color:var(--mt);font-size:10px;margin-top:1px}
-  .day-card .act .who{font-size:9px;color:var(--mt);flex-shrink:0;text-align:right;min-width:50px}
-  .day-card .night-note{font-size:10px;padding:6px 14px 10px;color:var(--mt);border-top:1px solid #f2f2f2}
+  .chk li{padding-left:0;display:flex;align-items:flex-start;gap:6px}
+  .chk li::before{content:''}
+  .chk input{width:14px;height:14px;margin-top:2px;accent-color:var(--ch);flex-shrink:0}
+  .chk label{font-size:12px}
 
-  .dc0 .dn{background:var(--re)} .dc0{border-left:3px solid #b0bec5}
-  .dc1 .dn{background:var(--ch)} .dc1{border-left:3px solid var(--chl)}
-  .dc2 .dn{background:var(--te)} .dc2{border-left:3px solid var(--tel)}
-  .dc3 .dn{background:var(--lw)} .dc3{border-left:3px solid var(--lwl)}
-  .dc4 .dn{background:var(--te)} .dc4{border-left:3px solid var(--tel)}
-  .dc5 .dn{background:var(--re)} .dc5{border-left:3px solid #b0bec5}
-  .dc6 .dn{background:#b0bec5}.dc6{border-left:3px solid #cfd8dc}
+  .hl{background:#fffde7;border-left:3px solid #ffc107;padding:8px 12px;border-radius:6px;font-size:11px;margin-top:8px}
+  .hlr{background:#fff5f5;border-left-color:#e53935}
+  .hlb{background:#f5f7ff;border-left-color:#1565c0}
 
-  .tag-dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px;flex-shrink:0}
-  .td-c{background:var(--ch)} .td-m{background:var(--ms)} .td-t{background:var(--te)} .td-l{background:var(--lw)} .td-r{background:var(--re)}
+  .badge{display:inline-block;font-size:10px;padding:1px 7px;border-radius:10px;font-weight:700}
+  .bc{background:var(--chb);color:var(--ch)} .bm{background:var(--msb);color:var(--ms)}
+  .bt{background:var(--teb);color:var(--te)} .bl{background:var(--lwb);color:var(--lw)}
 
-  .acc{margin-bottom:6px;background:var(--ca);border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03)}
-  .acc summary{list-style:none;padding:clamp(12px,3vw,14px);cursor:pointer;font-weight:700;font-size:var(--fs-sm);display:flex;align-items:center;gap:8px;min-height:44px;user-select:none}
-  .acc summary::-webkit-details-marker{display:none}
-  .acc summary::after{content:'▾';margin-left:auto;font-size:12px;color:var(--mt);transition:.2s}
-  .acc[open]>summary::after{transform:rotate(180deg)}
-  .acc .acc-body{padding:0 14px 14px;font-size:var(--fs-xs)}
-  .acc .acc-body table{width:100%;border-collapse:collapse;font-size:var(--fs-xs)}
-  .acc .acc-body th{text-align:left;padding:5px 6px;border-bottom:2px solid #e0e0e0;font-size:9px;color:var(--mt);white-space:nowrap}
-  .acc .acc-body td{padding:5px 6px;border-bottom:1px solid #f2f2f2;vertical-align:top}
-  .acc .acc-body ul{list-style:none}
-  .acc .acc-body li{margin-bottom:3px;padding-left:10px;position:relative}
-  .acc .acc-body li::before{content:'–';position:absolute;left:0;color:var(--mt)}
-  .acc .acc-body .hl{background:#fffde7;border-left:3px solid #ffc107;padding:6px 10px;border-radius:6px;font-size:10px;margin-top:6px}
+  .divider{border-top:1px dashed #ddd;margin:10px 0}
 
-  .chk li{padding-left:0!important;display:flex;align-items:flex-start;gap:6px}
-  .chk li::before{content:''!important}
-  .chk input{width:15px;height:15px;margin-top:2px;accent-color:var(--ch);flex-shrink:0}
-
-  .bnav{position:fixed;bottom:0;left:0;right:0;background:var(--ca);display:flex;border-top:1px solid #e8e5de;z-index:100;padding:4px 0 env(safe-area-inset-bottom,4px);box-shadow:0 -1px 6px rgba(0,0,0,.04)}
-  .bnav button{flex:1;border:none;background:none;padding:6px 4px;cursor:pointer;font-size:10px;color:var(--mt);display:flex;flex-direction:column;align-items:center;gap:2px;min-height:50px}
-  .bnav button .bi{font-size:20px}
-  .bnav button.on{color:var(--tx);font-weight:700}
-
-  .matrix-card{background:var(--ca);border-radius:10px;padding:clamp(10px,2.5vw,14px);margin-bottom:clamp(10px,3vw,14px);box-shadow:0 1px 3px rgba(0,0,0,.03)}
-  .matrix-card h3{font-size:var(--fs-sm);margin-bottom:6px}
-  .matrix-card table{width:100%;border-collapse:collapse;font-size:var(--fs-xs)}
-  .matrix-card th{text-align:left;padding:5px 6px;border-bottom:2px solid #e0e0e0;font-size:9px;color:var(--mt);white-space:nowrap}
-  .matrix-card td{padding:5px 6px;border-bottom:1px solid #f5f5f5}
-
-  .badge{font-size:9px;padding:1px 6px;border-radius:8px;font-weight:700;white-space:nowrap;display:inline-block}
-  .bc{background:var(--chb);color:var(--ch)}.bm{background:var(--msb);color:var(--ms)}
-  .bt{background:var(--teb);color:var(--te)}.bl{background:var(--lwb);color:var(--lw)}
-
-  @media(min-width:768px){
-    body{padding-bottom:0}
-    .bnav{display:none}
-    .page{display:block!important;margin-bottom:20px}
-    .page+.page{border-top:1px solid var(--ln);padding-top:16px}
-    .team-row{grid-template-columns:repeat(4,1fr)}
-    .day-card summary{pointer-events:none}
-    .day-card .acts{display:block!important}
-    .acc summary{pointer-events:none}
-    .acc .acc-body{display:block!important}
-    .week button{min-width:70px;padding:10px 8px;font-size:13px}
-    .hdr h1{font-size:22px}
-    .qbars{flex-direction:row;flex-wrap:wrap}
-    .qb{flex:1;min-width:180px}
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-  }
-  .two-col{display:block}
-  .three-col{display:block}
-  @media(min-width:768px){
-    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
-  }
+  /* schedule day card */
+  .day{margin-bottom:16px;background:var(--ca);border-radius:10px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.03)}
+  .day .dh{padding:10px 16px;font-weight:700;font-size:13px;display:flex;align-items:center;gap:8px}
+  .day .dh .dn{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;color:#fff;font-size:12px;flex-shrink:0}
+  .sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:6px;padding:0 10px 10px}
+  .sl{border-radius:8px;overflow:hidden;font-size:12px}
+  .sl .sh{padding:7px 12px;font-weight:700;font-size:10px;display:flex;align-items:center;gap:5px}
+  .sl .sb{padding:10px 12px}
+  .sl .sb div{margin-bottom:2px}
+  .sl .sf{padding:5px 12px;font-size:10px;color:var(--mt)}
+  .slc .sh{background:var(--chb);color:var(--ch)} .slc .sf{background:var(--chb);color:var(--ch)} .slc{border-left:3px solid var(--chl)}
+  .slm .sh{background:var(--msb);color:var(--ms)} .slm .sf{background:var(--msb);color:var(--ms)} .slm{border-left:3px solid var(--msl)}
+  .slt .sh{background:var(--teb);color:var(--te)} .slt .sf{background:var(--teb);color:var(--te)} .slt{border-left:3px solid var(--tel)}
+  .sll .sh{background:var(--lwb);color:var(--lw)} .sll .sf{background:var(--lwb);color:var(--lw)} .sll{border-left:3px solid var(--lwl)}
+  .slr .sh{background:var(--reb);color:var(--re)} .slr .sf{background:var(--reb);color:var(--re)} .slr{border-left:3px solid #b0bec5}
+  .nt{font-size:11px;padding:6px 12px;color:var(--mt)}
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<div class="hdr">
-  <h1>石台县推普+普法</h1>
-  <div class="badges"><span>8人</span><span>大山村</span><span>安农大AI学院</span></div>
+<div class="hd">
+  <h1>石台县推普+普法 · 执行策划案</h1>
+  <div class="meta"><span>8人</span><span>驻地：仙寓镇大山村</span><span>安徽农业大学</span></div>
 </div>
 
-<div class="week" id="weekStrip">
-  <button onclick="showDay(0)" class="on"><span class="d">D1</span>踩点</button>
-  <button onclick="showDay(1)"><span class="d">D2</span>儿童+民宿</button>
-  <button onclick="showDay(2)"><span class="d">D3</span>茶园+夜校</button>
-  <button onclick="showDay(3)"><span class="d">D4</span>入户双收</button>
-  <button onclick="showDay(4)"><span class="d">D5</span>直播+结业</button>
-  <button onclick="showDay(5)"><span class="d">D6</span>补漏收尾</button>
-  <button onclick="showDay(6)"><span class="d">D7</span>撤离</button>
+<div class="tn">
+  <button class="on" onclick="sw('ov')">📊 总览</button>
+  <button onclick="sw('sc')">📅 7日日程</button>
+  <button onclick="sw('eq')">🎒 物资</button>
+  <button onclick="sw('op')">📦 产出</button>
+  <button onclick="sw('pr')">⚙️ 前期</button>
+  <button onclick="sw('tr')">🚗 交通</button>
+  <button onclick="sw('bu')">💰 预算</button>
+  <button onclick="sw('em')">🆘 应急</button>
 </div>
 
-<!-- ===== PAGE: 日程 ===== -->
-<div class="page on" id="page-sched">
+<!-- ============================== TAB 1: 总览 ============================== -->
+<div class="tp on" id="tp-ov">
 
-  <div class="qbars">
-    <div class="qb q1"><div class="ico">📝</div><div class="info"><div class="lbl">有效问卷</div><div class="bar-bg"><div class="bar-fill" id="bar1" style="width:0%"></div></div></div><div class="val" id="val1">0/150</div></div>
-    <div class="qb q2"><div class="ico">🏠</div><div class="info"><div class="lbl">民宿培训</div><div class="bar-bg"><div class="bar-fill" id="bar2" style="width:0%"></div></div></div><div class="val" id="val2">0/15</div></div>
-    <div class="qb q3"><div class="ico">👧</div><div class="info"><div class="lbl">儿童普测</div><div class="bar-bg"><div class="bar-fill" id="bar3" style="width:0%"></div></div></div><div class="val" id="val3">0/20</div></div>
-    <div class="qb q4"><div class="ico">📱</div><div class="info"><div class="lbl">小程序推广</div><div class="bar-bg"><div class="bar-fill" id="bar4" style="width:0%"></div></div></div><div class="val" id="val4">0/50</div></div>
+  <!-- DETAILED GANTT -->
+  <div class="gantt-wrap">
+    <h3>7日甘特图 <small>— 每个格子 = 谁 + 在哪 + 干什么</small></h3>
+    <div class="legend">
+      <span class="lc">留守儿童</span><span class="lm">民宿主</span><span class="lt">茶农/电商</span><span class="ll">农户/普法</span><span class="lr">对接/后勤</span>
+    </div>
+    <table class="gantt">
+      <thead>
+        <tr>
+          <th></th><th></th>
+          <th class="day-col" colspan="3">D1<br><small>踩点摸底</small></th>
+          <th class="day-col" colspan="3">D2<br><small>儿童+民宿</small></th>
+          <th class="day-col" colspan="3">D3<br><small>茶园+夜校</small></th>
+          <th class="day-col" colspan="3">D4<br><small>入户双收</small></th>
+          <th class="day-col" colspan="3">D5<br><small>直播+结业</small></th>
+          <th class="day-col" colspan="3">D6<br><small>补漏收尾</small></th>
+          <th class="day-col" colspan="3">D7<br><small>撤离</small></th>
+        </tr>
+        <tr>
+          <th></th><th></th>
+          <th class="sub">上午</th><th class="sub">下午</th><th class="sub">晚</th>
+          <th class="sub">上午</th><th class="sub">下午</th><th class="sub">晚</th>
+          <th class="sub">上午</th><th class="sub">下午</th><th class="sub">晚</th>
+          <th class="sub">上午</th><th class="sub">下午</th><th class="sub">晚</th>
+          <th class="sub">上午</th><th class="sub">下午</th><th class="sub">晚</th>
+          <th class="sub">上午</th><th class="sub">下午</th><th class="sub">晚</th>
+          <th class="sub">上午</th><th class="sub">下午</th><th class="sub">晚</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 儿童 row -->
+        <tr>
+          <td class="row-label"><span class="badge bc">留守儿童</span></td>
+          <td class="time-label">目标<br>20+人</td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gc"><b>集中活动①</b><span class="sub">App普测+绕口令+规范字</span><span class="loc">📍村实践站</span><span class="sub">👤教学+宣传</span></div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gc"><b>入户顺带</b><span class="sub">遇儿童就补测+绕口令</span><span class="loc">📍入户途中</span><span class="sub">👤入户组顺带</span></div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gc"><b>集中活动②结业</b><span class="sub">动画配音+朗诵展示+发奖品</span><span class="loc">📍村实践站</span><span class="sub">👤教学+宣传+调研</span></div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+        </tr>
+
+        <!-- 民宿 row -->
+        <tr>
+          <td class="row-label"><span class="badge bm">民宿主</span></td>
+          <td class="time-label">目标<br>15+户</td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gm"><b>入户摸底</b><span class="sub">闲聊记痛点·不培训不问卷</span><span class="loc">📍大山村5~8户</span><span class="sub">👤教学+调研</span></div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gm"><b>话术培训</b><span class="sub">10句接待话术·跟读→录音→纠音</span><span class="loc">📍入户3~5户</span><span class="sub">👤教学+调研搭班</span></div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gm"><b>话术培训（续）</b><span class="sub">覆盖Day2未走到的户</span><span class="loc">📍入户</span><span class="sub">👤教学+调研</span></div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gm"><b>直播培训</b><span class="sub">上台讲3分钟·录像纠音+AI配音</span><span class="loc">📍集中培训点</span><span class="sub">👤教学+宣传</span></div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+        </tr>
+
+        <!-- 茶农 row -->
+        <tr class="row-divider">
+          <td class="row-label"><span class="badge bt">茶农/电商</span></td>
+          <td class="time-label">目标<br>10+人</td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gt"><b>话术+工具培训</b><span class="sub">直播回放找问题→5句卖点话术训练</span><span class="sub">教提词器App+剪映字幕</span><span class="loc">📍茶园/电商基地</span><span class="sub">👤教学+宣传·调研做问卷</span></div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gt"><b>上台实战</b><span class="sub">每人讲3分钟·录像→回放纠音</span><span class="sub">教AI配音备用方案</span><span class="loc">📍集中培训点</span><span class="sub">👤教学+宣传</span></div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+        </tr>
+
+        <!-- 农户/普法 row -->
+        <tr>
+          <td class="row-label"><span class="badge bl">农户/普法</span></td>
+          <td class="time-label">目标<br>150+问卷<br>50+小程序</td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gl"><b>搭车夜校</b><span class="sub">普法短剧5分钟</span><span class="sub">普法句子跟读练普通话</span><span class="sub">推广小程序</span><span class="loc">📍夜校点</span><span class="sub">👤全体</span></div></td>
+          <td><div class="cell gl"><b>全天入户（分2路）</b><span class="sub">一次入户三件事：</span><span class="sub">①问卷测评 ②普法讲解 ③小程序</span><span class="loc">📍大山村+辐射村</span><span class="sub">👤每路教学1+调研1</span></div></td>
+          <td><div class="cell gl"><b>全天入户（续）</b><span class="sub">同上午</span></div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gl"><b>补漏入户</b><span class="sub">补问卷·补普法·补小程序</span><span class="loc">📍未覆盖户/偏远户</span><span class="sub">👤教学+调研</span></div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+        </tr>
+
+        <!-- 对接/后勤 row -->
+        <tr>
+          <td class="row-label" style="color:var(--re)">对接/后勤</td>
+          <td class="time-label">队长</td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gr"><b>村委对接</b><span class="sub">拿名单·问儿童托管·问夜校</span><span class="loc">📍村委会</span><span class="sub">👤队长+1人</span></div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td><div class="cell gr"><b>村委座谈</b><span class="sub">汇报发现·移交物料</span><span class="loc">📍村委会</span><span class="sub">👤队长+1人</span></div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+          <td class="empty"><div class="gn">—</div></td>
+        </tr>
+
+        <!-- 复盘 row -->
+        <tr>
+          <td class="row-label" style="font-size:10px;color:var(--mt)">复盘</td>
+          <td class="time-label" style="font-size:9px">每晚<br>21:00</td>
+          <td><div class="cell night-cell">汇总踩点<br>敲定Day2</div></td>
+          <td></td><td></td>
+          <td></td><td></td>
+          <td><div class="cell night-cell">儿童水平<br>民宿效果<br>确认夜校</div></td>
+          <td></td><td></td>
+          <td></td>
+          <td><div class="cell night-cell">夜校效果<br>茶农反馈</div></td>
+          <td></td><td></td>
+          <td></td><td></td>
+          <td><div class="cell night-cell">汇总数据<br>标未覆盖</div></td>
+          <td></td><td></td>
+          <td></td><td></td>
+          <td><div class="cell night-cell">标未覆盖户<br>数据缺口</div></td>
+          <td></td><td></td>
+          <td></td><td></td>
+          <td><div class="cell night-cell">全体复盘<br>内部总结</div></td>
+          <td></td><td></td>
+          <td></td><td></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <div class="team-row">
-    <div class="t"><div class="n" style="color:var(--ch)">3人</div><div class="r">教学组</div></div>
-    <div class="t"><div class="n" style="color:var(--lw)">2人</div><div class="r">调研组</div></div>
-    <div class="t"><div class="n" style="color:var(--ms)">2人</div><div class="r">宣传组</div></div>
-    <div class="t"><div class="n" style="color:var(--re)">1人</div><div class="r">队长</div></div>
+  <!-- TEAM + TARGETS -->
+  <div class="strip">
+    <div class="box"><div class="n" style="color:var(--ch)">3人</div><div class="r">教学组 · 二甲以上</div></div>
+    <div class="box"><div class="n" style="color:var(--lw)">2人</div><div class="r">调研组 · 问卷+访谈</div></div>
+    <div class="box"><div class="n" style="color:var(--ms)">2人</div><div class="r">宣传组 · 拍摄+剪辑</div></div>
+    <div class="box"><div class="n" style="color:var(--re)">1人</div><div class="r">队长 · 统筹+对接+后勤</div></div>
   </div>
+
+  <div class="strip">
+    <div class="box"><div class="n" style="color:var(--lw)">150+</div><div class="r">有效问卷</div></div>
+    <div class="box"><div class="n" style="color:var(--ms)">15+户</div><div class="r">民宿培训覆盖</div></div>
+    <div class="box"><div class="n" style="color:var(--ch)">20+人</div><div class="r">儿童普测+活动</div></div>
+    <div class="box"><div class="n" style="color:var(--te)">50+人</div><div class="r">小程序推广</div></div>
+  </div>
+
+  <!-- MATRIX + RULES -->
+  <div class="g2">
+    <div class="card"><h3>四对象 × 四动作</h3>
+      <table>
+        <thead><tr><th>对象</th><th>在哪</th><th>推普</th><th>普法</th><th>工具</th></tr></thead>
+        <tbody>
+          <tr><td><span class="badge bc">儿童</span></td><td>实践站</td><td>测评+绕口令+规范字+配音</td><td>—</td><td>测评App</td></tr>
+          <tr><td><span class="badge bm">民宿</span></td><td>入户</td><td>10句接待话术跟读纠正</td><td>小程序</td><td>手机录音</td></tr>
+          <tr><td><span class="badge bt">茶农</span></td><td>茶园</td><td>直播话术+卖点表达</td><td>小程序</td><td>提词器+剪映</td></tr>
+          <tr><td><span class="badge bl">农户</span></td><td>入户/夜校</td><td>问卷+普法句子跟读</td><td>短剧+折页</td><td>小程序</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card"><h3>每日固定动作</h3>
+      <ul>
+        <li><b>22:00 复盘30分钟</b> — 干了什么·问题·明天怎么调</li>
+        <li><b>宣传组当天出</b> — 9图朋友圈 + 活动简讯</li>
+        <li><b>队长提前确认</b> — 次日交通·对接人·物资</li>
+        <li><b>调研组当天录入</b> — 问卷数据电子化</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== TAB 2: 日程 ============================== -->
+<div class="tp" id="tp-sc">
 
   <!-- D1 -->
-  <details class="day-card dc0" id="dc0" open>
-    <summary><div class="dn">1</div><div class="dt"><div class="tl">到达 + 踩点</div><div class="sub">大山村 · 全体</div></div><div class="badges-row"><span class="bm">民宿摸底</span><span style="background:var(--reb);color:var(--re)">村委对接</span></div></summary>
-    <div class="acts">
-      <div class="act"><div class="ai">🏨</div><div class="ab"><b>抵达入住</b><div class="det">卸物资、安顿</div></div><div class="who">全体</div></div>
-      <div class="act"><div class="ai">🏛</div><div class="ab"><b>村委对接</b><div class="det">拿名单·问儿童托管·问夜校</div></div><div class="who">队长+1</div></div>
-      <div class="act"><div class="ai">🚶</div><div class="ab"><b>入户摸底</b><div class="det">走5~8户民宿，闲聊记痛点</div></div><div class="who">教学+调研</div></div>
+  <div class="day"><div class="dh"><span class="dn" style="background:var(--re)">1</span>到达 + 踩点</div>
+    <div class="sg">
+      <div class="sl slr"><div class="sh">🏨 8:00-12:00 · 全体</div><div class="sb"><div>抵达大山村、入住、卸物资</div></div></div>
+      <div class="sl slr"><div class="sh">🏛 13:30-15:30 · 队长+1人 → 村委会</div><div class="sb"><div>拿民宿/茶农名单</div><div>确认实践站暑期儿童托管、能否召集</div><div>问夜校时间、能否搭车</div></div><div class="sf">方式：面对面访谈</div></div>
+      <div class="sl slm"><div class="sh">🚶 14:00-17:00 · 教学组+调研组 → 入户</div><div class="sb"><div>走访5~8户民宿/农家，纯聊天摸底</div><div>记：接待什么游客？哪句普通话难？想学什么？</div></div><div class="sf">不培训·不问卷</div></div>
     </div>
-    <div class="night-note">🌙 复盘：汇总踩点信息，敲定Day2</div>
-  </details>
+    <div class="nt">🌙 21:00 复盘：汇总踩点信息，敲定Day2儿童地点、民宿名单、茶园联系人</div>
+  </div>
 
   <!-- D2 -->
-  <details class="day-card dc1" id="dc1">
-    <summary><div class="dn">2</div><div class="dt"><div class="tl">儿童 + 民宿</div><div class="sub">村实践站 · 入户</div></div><div class="badges-row"><span class="bc">留守儿童</span><span class="bm">民宿培训</span></div></summary>
-    <div class="acts">
-      <div class="act"><div class="ai">🧒</div><div class="ab"><b>儿童集中活动①</b><div class="det">App普测+绕口令闯关+规范字书写</div></div><div class="who">教学+宣传</div></div>
-      <div class="act"><div class="ai">🏠</div><div class="ab"><b>民宿话术培训</b><div class="det">10句接待话术·跟读→录音→纠音</div></div><div class="who">教学组</div></div>
-      <div class="act"><div class="ai">📋</div><div class="ab"><b>问卷+小程序</b><div class="det">普通话问卷·推广普法小程序</div></div><div class="who">调研组</div></div>
+  <div class="day"><div class="dh"><span class="dn" style="background:var(--ch)">2</span>儿童 + 民宿</div>
+    <div class="sg">
+      <div class="sl slc"><div class="sh">🧒 9:00-11:30 · 教学组+宣传组 → 村实践站</div><div class="sb"><div>App普测摸底，每人出分记档</div><div>绕口令分组闯关 → 规范字田字格书写</div><div>没来的登记地址，入户时补</div></div><div class="sf">留守儿童（村委提前召集）· 测评App、绕口令卡片、田字格纸</div></div>
+      <div class="sl slm"><div class="sh">🏠 14:00-17:30 · 教学组 → 入户 3~5户</div><div class="sb"><div>教10句标准接待话术</div><div>逐句跟读 → 录音 → 对比 → 纠正</div></div><div class="sf">民宿主 · 手机录音、话术卡（塑封留给对方）</div></div>
+      <div class="sl slm"><div class="sh">📋 14:00-17:30 · 调研组 → 搭班入户</div><div class="sb"><div>同步普通话问卷 + 推广普法小程序</div></div><div class="sf">民宿主及家属 · 纸质问卷、小程序码</div></div>
     </div>
-    <div class="night-note">🌙 复盘：儿童水平分布·民宿培训效果·确认夜校</div>
-  </details>
+    <div class="nt">🌙 21:00 复盘：儿童水平分布、民宿培训效果，确认Day3夜校</div>
+  </div>
 
   <!-- D3 -->
-  <details class="day-card dc2" id="dc2">
-    <summary><div class="dn">3</div><div class="dt"><div class="tl">茶园 + 普法夜校</div><div class="sub">茶园/电商基地 · 夜校点</div></div><div class="badges-row"><span class="bt">茶农培训</span><span class="bm">民宿续</span><span class="bl">夜校</span></div></summary>
-    <div class="acts">
-      <div class="act"><div class="ai">🍵</div><div class="ab"><b>茶农话术+工具</b><div class="det">直播回放找问题·5句卖点话术·提词器+剪映</div></div><div class="who">教学+宣传</div></div>
-      <div class="act"><div class="ai">📋</div><div class="ab"><b>产业问卷</b><div class="det">茶农专项问卷</div></div><div class="who">调研组</div></div>
-      <div class="act"><div class="ai">🏠</div><div class="ab"><b>民宿续训</b><div class="det">覆盖Day2未走到的户</div></div><div class="who">教学+调研</div></div>
-      <div class="act"><div class="ai">⚖</div><div class="ab"><b>搭车夜校</b><div class="det">普法短剧5分钟·普法句子跟读·推小程序</div></div><div class="who">全体</div></div>
+  <div class="day"><div class="dh"><span class="dn" style="background:var(--te)">3</span>茶园 + 普法夜校</div>
+    <div class="sg">
+      <div class="sl slt"><div class="sh">🍵 9:00-11:30 · 教学组+宣传组 → 茶园/电商基地</div><div class="sb"><div>看一场直播回放，标记发音问题</div><div>提炼5句产品卖点话术，逐句训练</div><div>教提词器App + 剪映自动字幕</div></div><div class="sf">茶农/直播从业者 · 直播回放、提词器App、剪映</div></div>
+      <div class="sl slt"><div class="sh">📋 9:00-11:30 · 调研组 → 同上</div><div class="sb"><div>同步产业从业者专项问卷</div></div></div>
+      <div class="sl slm"><div class="sh">🏠 14:00-17:30 · 教学组+调研组 → 入户</div><div class="sb"><div>同Day2：话术+问卷+小程序（覆盖新户）</div></div><div class="sf">Day2未覆盖的民宿主</div></div>
+      <div class="sl sll"><div class="sh">⚖ 19:00-20:30 · 全体 → 夜校（搭车）</div><div class="sb"><div>普法情景短剧 5分钟</div><div>用普法句子跟读练普通话</div><div>推广普法小程序</div></div><div class="sf">村民 · 情景短剧台本（提前打印）、小程序码</div></div>
     </div>
-    <div class="night-note">🌙 复盘：夜校效果·茶农反馈</div>
-  </details>
+    <div class="nt">🌙 21:00 复盘：夜校效果、茶农培训反馈</div>
+  </div>
 
   <!-- D4 -->
-  <details class="day-card dc3" id="dc3">
-    <summary><div class="dn">4</div><div class="dt"><div class="tl">入户双收</div><div class="sub">大山村+辐射村 · 全天入户</div></div><div class="badges-row"><span class="bl">入户问卷+普法</span><span class="bc">儿童顺带</span></div></summary>
-    <div class="acts">
-      <div class="act"><div class="ai">🚶</div><div class="ab"><b>全天入户（分2路）</b><div class="det">一次入户三件事：①问卷测评 ②普法(土地/反诈/婚姻) ③教小程序</div></div><div class="who">每路:教学1+调研1</div></div>
-      <div class="act"><div class="ai">🔄</div><div class="ab"><b>入户途中顺带儿童</b><div class="det">遇儿童就App快测+绕口令</div></div><div class="who">入户组顺带</div></div>
+  <div class="day"><div class="dh"><span class="dn" style="background:var(--lw)">4</span>入户双收（全天入户日）</div>
+    <div class="sg">
+      <div class="sl sll"><div class="sh">🚶 9:00-12:00 / 14:00-17:30 · 分2路入户</div><div class="sb"><div><b>一次入户三件事：</b></div><div>① 普通话问卷测评</div><div>② 普法常识（土地流转 / 反诈 / 婚姻）</div><div>③ 教用普法小程序</div></div><div class="sf">普通农户 · 每路：教学1人+调研1人 · 队长+宣传留守/跟拍</div></div>
+      <div class="sl slc"><div class="sh">🔄 入户途中顺带</div><div class="sb"><div>遇儿童：App快测 + 绕口令 + 登记（补Day2没来的）</div></div></div>
     </div>
-    <div class="night-note">🌙 调研组汇总数据·标未覆盖村组·复盘</div>
-  </details>
+    <div class="nt">🌙 21:00 调研组汇总当天数据，标未覆盖村组；全体复盘</div>
+  </div>
 
   <!-- D5 -->
-  <details class="day-card dc4" id="dc4">
-    <summary><div class="dn">5</div><div class="dt"><div class="tl">电商专项 + 儿童结业</div><div class="sub">培训点 · 村实践站</div></div><div class="badges-row"><span class="bt">上台纠音</span><span class="bc">儿童结业</span></div></summary>
-    <div class="acts">
-      <div class="act"><div class="ai">📱</div><div class="ab"><b>上台实战</b><div class="det">每人讲3分钟产品→录像→回放纠音→教AI配音</div></div><div class="who">教学+宣传</div></div>
-      <div class="act"><div class="ai">🧒</div><div class="ab"><b>儿童结业展示</b><div class="det">动画配音+朗诵录音对比Day2+发奖品</div></div><div class="who">教学+宣传+调研</div></div>
+  <div class="day"><div class="dh"><span class="dn" style="background:var(--te)">5</span>电商专项 + 儿童结业</div>
+    <div class="sg">
+      <div class="sl slt"><div class="sh">📱 9:00-11:30 · 教学组+宣传组 → 集中培训点</div><div class="sb"><div>每人上台讲3分钟产品介绍，录像</div><div>回放逐句纠音</div><div>教AI配音替代方案</div></div><div class="sf">有直播意愿的茶农/民宿主 · 手机录像、AI配音工具</div></div>
+      <div class="sl slc"><div class="sh">🧒 14:00-16:30 · 教学组+宣传组+调研组 → 村实践站</div><div class="sb"><div>动画片段配音</div><div>每人朗诵一段，录下，对比Day2录音</div><div>发奖品结业</div></div><div class="sf">留守儿童 · 动画素材（提前下载离线）、手机录音</div></div>
     </div>
-    <div class="night-note">🌙 复盘：标未覆盖户·整理数据缺口</div>
-  </details>
+    <div class="nt">🌙 21:00 复盘：标未覆盖户、整理数据缺口</div>
+  </div>
 
   <!-- D6 -->
-  <details class="day-card dc5" id="dc5">
-    <summary><div class="dn">6</div><div class="dt"><div class="tl">补漏 + 收尾</div><div class="sub">入户 · 村委会 · 驻地</div></div><div class="badges-row"><span class="bl">补漏入户</span><span style="background:var(--reb);color:var(--re)">村委座谈</span></div></summary>
-    <div class="acts">
-      <div class="act"><div class="ai">🚶</div><div class="ab"><b>补漏入户</b><div class="det">补问卷·补普法·补小程序</div></div><div class="who">教学+调研</div></div>
-      <div class="act"><div class="ai">🏛</div><div class="ab"><b>村委座谈</b><div class="det">汇报发现·移交话术卡/折页·确认后续联系</div></div><div class="who">队长+1</div></div>
-      <div class="act"><div class="ai">💻</div><div class="ab"><b>分头整理</b><div class="det">调研组:报告大纲·教学组:素材打包·宣传组:视频粗剪</div></div><div class="who">各组</div></div>
+  <div class="day"><div class="dh"><span class="dn" style="background:var(--re)">6</span>补漏 + 收尾</div>
+    <div class="sg">
+      <div class="sl sll"><div class="sh">🚶 8:30-12:00 · 教学组+调研组 → 入户</div><div class="sb"><div>补问卷、补普法、补小程序推广</div></div><div class="sf">未覆盖户/偏远户</div></div>
+      <div class="sl slr"><div class="sh">🏛 9:00-11:00 · 队长+1人 → 村委会</div><div class="sb"><div>座谈：汇报初步发现，移交话术卡/普法折页，确认后续联系</div></div><div class="sf">村委/对接单位</div></div>
+      <div class="sl slr"><div class="sh">💻 14:00-17:30 · 各组 → 驻地</div><div class="sb"><div><b>调研组：</b>问卷汇总、报告大纲</div><div><b>教学组：</b>话术卡定稿、素材打包</div><div><b>宣传组：</b>视频粗剪、新闻稿、9图</div></div></div>
     </div>
-    <div class="night-note">🌙 全体复盘+内部总结</div>
-  </details>
+    <div class="nt">🌙 21:00 全体复盘 + 内部总结</div>
+  </div>
 
   <!-- D7 -->
-  <details class="day-card dc6" id="dc6">
-    <summary><div class="dn">7</div><div class="dt"><div class="tl">撤离</div><div class="sub">返程</div></div></summary>
-    <div class="acts">
-      <div class="act"><div class="ai">👋</div><div class="ab"><b>收拾道别</b></div><div class="who">全体</div></div>
-      <div class="act"><div class="ai">🚐</div><div class="ab"><b>返程</b></div><div class="who">全体</div></div>
-    </div>
-  </details>
-
-  <div class="matrix-card">
-    <h3>四对象 × 四动作</h3>
-    <table>
-      <thead><tr><th>对象</th><th>在哪</th><th>推普</th><th>普法</th><th>工具</th></tr></thead>
-      <tbody>
-        <tr><td><span class="badge bc">儿童</span></td><td>实践站</td><td>测评+绕口令+规范字+配音</td><td>—</td><td>测评App</td></tr>
-        <tr><td><span class="badge bm">民宿</span></td><td>入户</td><td>10句话术跟读纠正</td><td>小程序</td><td>录音</td></tr>
-        <tr><td><span class="badge bt">茶农</span></td><td>茶园</td><td>直播话术+卖点表达</td><td>小程序</td><td>提词器+剪映</td></tr>
-        <tr><td><span class="badge bl">农户</span></td><td>入户/夜校</td><td>问卷+普法句子跟读</td><td>短剧+折页</td><td>小程序</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <div class="matrix-card">
-    <h3>每日固定</h3>
-    <div style="font-size:var(--fs-xs);display:flex;flex-direction:column;gap:4px">
-      <div>🕙 <b>22:00复盘30分钟</b> — 干了什么·问题·明天怎么调</div>
-      <div>📸 <b>宣传组当天出</b> — 9图朋友圈+简讯</div>
-      <div>📋 <b>队长提前确认</b> — 次日交通·对接人·物资</div>
-      <div>📊 <b>调研组当天录入</b> — 问卷数据电子化</div>
+  <div class="day"><div class="dh"><span class="dn" style="background:#b0bec5">7</span>撤离</div>
+    <div class="sg">
+      <div class="sl slr"><div class="sh">👋 8:00-12:00 · 全体</div><div class="sb"><div>收拾、道别</div></div></div>
+      <div class="sl slr"><div class="sh">🚐 13:00- · 全体</div><div class="sb"><div>返程</div></div></div>
     </div>
   </div>
 </div>
 
-<!-- ===== PAGE: 清单 ===== -->
-<div class="page" id="page-list">
+<!-- ============ TABS 3-8: 物资/产出/前期/交通/预算/应急 ============ -->
 
-  <details class="acc" open><summary>🎒 物资清单</summary><div class="acc-body">
-    <div class="two-col" style="margin-top:4px">
-      <div style="margin-bottom:10px"><b>教学培训</b>
-        <ul><li>绕口令卡片×30（过塑）</li><li>田字格纸×50</li><li>民宿话术卡模板</li><li>普法短剧台本×5</li><li>动画素材（离线）</li><li>蓝牙音箱×1</li><li>小奖品×30份</li></ul>
-      </div>
-      <div style="margin-bottom:10px"><b>问卷宣传</b>
-        <ul><li>普通话问卷×200</li><li>产业问卷×50</li><li>普法折页×100</li><li>小程序码卡片×50</li><li>横幅×1·队旗×1</li></ul>
-      </div>
-      <div style="margin-bottom:10px"><b>电子 & App</b>
-        <ul><li>充电宝×8</li><li>备用手机/平板×2</li><li>三脚架×1·U盘×1</li></ul>
-        <div style="font-size:10px;color:var(--mt);margin-top:4px"><b>全员装好：</b>测评App·普法小程序·提词器·剪映·AI配音·问卷星</div>
-      </div>
-      <div style="margin-bottom:10px"><b>生活 & 文书</b>
-        <ul><li>藿香正气·止泻·创可贴·驱蚊液</li><li>雨具·防晒·水杯·现金</li><li>身份证·学生证·介绍信·保险单</li><li>塑封机+塑封膜</li></ul>
-      </div>
+<!-- TAB 3: 物资 -->
+<div class="tp" id="tp-eq">
+  <div class="g3">
+    <div class="card"><h3>🎓 教学培训类</h3>
+      <ul><li>绕口令卡片 ×30（过塑）</li><li>田字格纸 ×50</li><li>民宿话术卡模板</li><li>普法短剧台本 ×5</li><li>动画配音素材（离线MP4）</li><li>蓝牙音箱 ×1</li><li>小奖品 ×30份</li></ul><div class="tag">教学组准备</div></div>
+    <div class="card"><h3>📋 问卷宣传类</h3>
+      <ul><li>普通话问卷 ×200份</li><li>产业专项问卷 ×50份</li><li>普法折页 ×100份</li><li>小程序二维码卡 ×50</li><li>横幅 ×1 · 队旗 ×1</li></ul><div class="tag">调研组设计·统一打印</div></div>
+    <div class="card"><h3>📱 电子 & App</h3>
+      <ul><li>充电宝 ×8</li><li>备用手机/平板 ×2</li><li>插线板 ×2 · 多口充电器 ×2</li><li>手机三脚架 ×1</li><li>U盘/移动硬盘 ×1</li></ul>
+      <div class="divider"></div><div style="font-size:11px;color:var(--mt)"><b>出发前全员装好：</b><br>测评App · 普法小程序 · 提词器 · 剪映 · AI配音 · 问卷星</div></div>
+    <div class="card"><h3>💊 生活保障</h3>
+      <ul><li>藿香正气 · 止泻 · 创可贴 · 驱蚊液</li><li>雨具（7月山区多雨）</li><li>帽子 · 冰袖 · 防晒霜</li><li>水杯 · 少量现金</li></ul><div class="tag">药品队长统一采购</div></div>
+    <div class="card"><h3>📄 文书类</h3>
+      <ul><li>身份证 · 学生证</li><li>学校介绍信/公函</li><li>保险单（全员）</li><li>紧急联系人表</li><li>塑封机+塑封膜</li></ul><div class="hl hlr">⚠ 出发前24小时队长逐项打勾确认</div></div>
+  </div>
+</div>
+
+<!-- TAB 4: 产出 -->
+<div class="tp" id="tp-op">
+  <div class="g3">
+    <div class="card"><h3>必选 · 教育部</h3>
+      <ul><li>语言国情调研报告 ≥5000字</li><li>问卷原始数据（纸质→电子）</li><li>活动总结报告</li><li>成员心得 ×8篇</li></ul><div class="tag">调研组牵头·Day6启动·返程1周定稿</div></div>
+    <div class="card"><h3>留给当地</h3>
+      <ul><li>民宿话术卡（塑封·每家1份）</li><li>茶农直播话术手册</li><li>儿童发音记录卡（每人1张）</li><li>儿童前后录音对比（3-5例）</li><li>普法短剧台本</li></ul><div class="tag">教学组牵头·Day6移交</div></div>
+    <div class="card"><h3>对外传播</h3>
+      <ul><li>照片精选 ≥30张</li><li>短视频 ≥3条</li><li>公众号推文 ≥2篇</li><li>新闻稿 1篇（投媒体）</li><li>9图朋友圈 ×7天</li></ul><div class="tag">宣传组牵头·当日简讯·返程深度</div></div>
+  </div>
+</div>
+
+<!-- TAB 5: 前期准备 -->
+<div class="tp" id="tp-pr">
+  <div class="g3">
+    <div class="card"><h3>出发前2周 · 人员</h3>
+      <ul class="chk"><li><input type="checkbox"><label>确认8人名单（不可再变动）</label></li><li><input type="checkbox"><label>核查全员普通话二甲及以上</label></li><li><input type="checkbox"><label>统一购买意外保险</label></li><li><input type="checkbox"><label>建微信群（导师+对接人）</label></li><li><input type="checkbox"><label>分组到人</label></li></ul></div>
+    <div class="card"><h3>出发前1周 · 工具</h3>
+      <ul class="chk"><li><input type="checkbox"><label>测评App全员测试通过</label></li><li><input type="checkbox"><label>普法小程序全员走一遍</label></li><li><input type="checkbox"><label>下载离线素材（动画/台本/模板）</label></li><li><input type="checkbox"><label>提词器+剪映+AI配音低端机测试</label></li><li><input type="checkbox"><label>问卷/折页/卡片全部打印</label></li></ul></div>
+    <div class="card"><h3>出发前1周 · 培训</h3>
+      <ul class="chk"><li><input type="checkbox"><label>问卷话术统一培训（问法+抗拒应对）</label></li><li><input type="checkbox"><label>普法短剧排练 ≥2遍</label></li><li><input type="checkbox"><label>民宿话术教学模拟</label></li><li><input type="checkbox"><label>儿童活动流程模拟</label></li><li><input type="checkbox"><label>手机拍摄基本培训</label></li></ul></div>
+  </div>
+  <div class="card" style="margin-top:10px"><h3>出发前48小时 · 队长最终确认（12项）</h3>
+    <div class="g3">
+      <ul class="chk"><li><input type="checkbox"><label>保险已买</label></li><li><input type="checkbox"><label>对接单位已确认</label></li><li><input type="checkbox"><label>住宿已落实</label></li><li><input type="checkbox"><label>交通票已定</label></li></ul>
+      <ul class="chk"><li><input type="checkbox"><label>物料已打印</label></li><li><input type="checkbox"><label>App可离线</label></li><li><input type="checkbox"><label>短剧已排</label></li><li><input type="checkbox"><label>手机已清存储</label></li></ul>
+      <ul class="chk"><li><input type="checkbox"><label>药品已购</label></li><li><input type="checkbox"><label>充电宝已充</label></li><li><input type="checkbox"><label>紧急联系人表已发群</label></li><li><input type="checkbox"><label>天气已查</label></li></ul>
     </div>
-  </div></details>
+  </div>
+</div>
 
-  <details class="acc"><summary>📦 产出清单</summary><div class="acc-body">
-    <div class="two-col">
-      <div style="margin-bottom:10px"><b>必选·教育部</b>
-        <ul><li>语言国情调研报告≥5000字</li><li>问卷原始数据</li><li>活动总结报告</li><li>成员心得×8篇</li></ul></div>
-      <div style="margin-bottom:10px"><b>留给当地</b>
-        <ul><li>民宿话术卡（塑封）</li><li>茶农直播话术手册</li><li>儿童发音记录卡</li><li>儿童录音对比（3-5例）</li><li>普法短剧台本</li></ul></div>
-    </div>
-    <div style="font-size:10px;color:var(--mt)"><b>对外传播：</b>照片≥30张·短视频≥3条·推文≥2篇·新闻稿1篇·9图×7天</div>
-  </div></details>
+<!-- TAB 6: 交通 -->
+<div class="tp" id="tp-tr">
+  <div class="g2">
+    <div class="card"><h3>去程：合肥 → 石台大山村（~4h）</h3>
+      <table>
+        <thead><tr><th>段</th><th>方式</th><th>路线</th><th>耗时</th><th>备注</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>高铁</td><td>合肥南 → 池州</td><td>~1.5h</td><td>暑期提前7天抢，8人同班次</td></tr>
+          <tr><td>2</td><td>大巴/包车</td><td>池州站 → 石台县城</td><td>~1.5h</td><td>包车8人约300-400元</td></tr>
+          <tr><td>3</td><td>包车</td><td>石台县城 → 大山村</td><td>~1h</td><td>45km山路，让村委帮忙联系车</td></tr>
+        </tbody>
+      </table>
+      <div class="hl">建议：早6-7点出发，中午前到。提前联系村委确认最后一段车辆。</div></div>
+    <div class="card"><h3>村间交通</h3>
+      <table>
+        <thead><tr><th>目的地</th><th>距大山村</th><th>方式</th></tr></thead>
+        <tbody>
+          <tr><td>大山村内</td><td>—</td><td>步行</td></tr>
+          <tr><td>矶滩乡</td><td>~15km</td><td>包车/村村通</td></tr>
+          <tr><td>横渡镇</td><td>~20km</td><td>包车/村村通</td></tr>
+          <tr><td>石台县城</td><td>~45km</td><td>包车（仅急事）</td></tr>
+        </tbody>
+      </table>
+      <div class="hl hlb">Day1跟村委要包车师傅电话存好，每天用车提前一晚联系。</div></div>
+  </div>
+  <div class="card" style="margin-top:10px"><b>返程：</b>原路返回。提前一天订票，预留充足时间（山路不可控）。</div>
+</div>
 
-  <details class="acc"><summary>⚙️ 前期准备</summary><div class="acc-body">
-    <div class="two-col">
-      <div style="margin-bottom:10px"><b>出发前2周·人员</b>
-        <ul class="chk"><li><input type="checkbox"><label>确认8人名单</label></li><li><input type="checkbox"><label>核查二甲证书</label></li><li><input type="checkbox"><label>买保险</label></li><li><input type="checkbox"><label>建群（导师+对接人）</label></li><li><input type="checkbox"><label>分组到人</label></li></ul></div>
-      <div style="margin-bottom:10px"><b>出发前1周·工具</b>
-        <ul class="chk"><li><input type="checkbox"><label>测评App全员测试</label></li><li><input type="checkbox"><label>普法小程序走一遍</label></li><li><input type="checkbox"><label>下载离线素材</label></li><li><input type="checkbox"><label>提词器+剪映+AI低端机测试</label></li><li><input type="checkbox"><label>物料全部打印</label></li></ul></div>
-      <div style="margin-bottom:10px"><b>出发前1周·培训</b>
-        <ul class="chk"><li><input type="checkbox"><label>问卷话术统一培训</label></li><li><input type="checkbox"><label>普法短剧排练≥2遍</label></li><li><input type="checkbox"><label>民宿话术教学模拟</label></li><li><input type="checkbox"><label>儿童活动模拟</label></li><li><input type="checkbox"><label>手机拍摄培训</label></li></ul></div>
-    </div>
-    <div class="hl"><b>出发前48小时队长确认：</b>保险✓ 对接✓ 住宿✓ 票✓ 物料✓ App✓ 短剧✓ 存储✓ 药✓ 充电宝✓ 联系人✓ 天气✓</div>
-  </div></details>
-
-  <details class="acc"><summary>🚗 交通方案</summary><div class="acc-body">
+<!-- TAB 7: 预算 -->
+<div class="tp" id="tp-bu">
+  <div class="card"><h3>预算估算（8人 × 7天）</h3>
     <table>
-      <thead><tr><th>段</th><th>方式</th><th>路线</th><th>耗时</th></tr></thead>
+      <thead><tr><th>类别</th><th>项目</th><th>单价</th><th>数量</th><th>小计</th><th>备注</th></tr></thead>
       <tbody>
-        <tr><td>1</td><td>高铁</td><td>合肥南→池州</td><td>~1.5h</td></tr>
-        <tr><td>2</td><td>大巴/包车</td><td>池州站→石台县城</td><td>~1.5h</td></tr>
-        <tr><td>3</td><td>包车</td><td>石台县城→大山村</td><td>~1h</td></tr>
+        <tr><td rowspan="3">交通</td><td>合肥⇌池州高铁</td><td>~80元/人</td><td>8人往返</td><td>~1280</td><td>学生票可能更低</td></tr>
+        <tr><td>池州⇌石台大巴/包车</td><td>~50元/人</td><td>8人往返</td><td>~800</td><td></td></tr>
+        <tr><td>村间包车（4天）</td><td>~200元/天</td><td>4天</td><td>~800</td><td></td></tr>
+        <tr><td rowspan="2">住宿</td><td>民宿/农家</td><td>~60元/人/天</td><td>8人×6晚</td><td>~2880</td><td>跟村委谈团体价</td></tr>
+        <tr><td>或村委免费安排</td><td>—</td><td>—</td><td>0?</td><td>三下乡团队部分免费</td></tr>
+        <tr><td rowspan="2">餐饮</td><td>早中晚餐</td><td>~50元/人/天</td><td>8人×7天</td><td>~2800</td><td></td></tr>
+        <tr><td>干粮/水补给</td><td>—</td><td>—</td><td>~200</td><td></td></tr>
+        <tr><td rowspan="3">物料</td><td>问卷/折页/卡片打印</td><td>—</td><td>—</td><td>~300</td><td></td></tr>
+        <tr><td>塑封机+塑封膜</td><td>~80元</td><td>1</td><td>~80</td><td></td></tr>
+        <tr><td>小奖品</td><td>~3元/份</td><td>30份</td><td>~90</td><td></td></tr>
+        <tr><td rowspan="3">其他</td><td>药品</td><td>—</td><td>—</td><td>~100</td><td></td></tr>
+        <tr><td>保险</td><td>~15元/人</td><td>8人</td><td>~120</td><td></td></tr>
+        <tr><td>应急备用</td><td>—</td><td>—</td><td>~500</td><td></td></tr>
+        <tr style="font-weight:700;border-top:2px solid #333"><td colspan="3">合计（含住宿）</td><td></td><td>~9950</td><td>人均~1240元</td></tr>
+        <tr style="font-weight:700"><td colspan="3">合计（免住宿）</td><td></td><td>~7070</td><td>人均~880元</td></tr>
       </tbody>
     </table>
-    <div style="font-size:10px;color:var(--mt);margin-top:4px">村间：矶滩~15km / 横渡~20km，包车或村村通。Day1跟村委要包车师傅电话。</div>
-  </div></details>
-
+    <div class="hl">住宿是大头，优先争取村委/团委免费安排。申报按1万填留余量。</div></div>
 </div>
 
-<!-- ===== PAGE: 工具 ===== -->
-<div class="page" id="page-tools">
-
-  <details class="acc" open><summary>💰 预算（8人×7天）</summary><div class="acc-body">
+<!-- TAB 8: 应急 -->
+<div class="tp" id="tp-em">
+  <div class="g3">
+    <div class="card"><h3>🌧 恶劣天气</h3><ul><li>小雨照常，户外转室内（村委活动室）</li><li>大雨/暴雨：取消入户，室内整理数据、排练、剪辑</li><li>每晚查次日天气，复盘时决定是否调整</li></ul></div>
+    <div class="card"><h3>👧 召集不到儿童</h3><ul><li><b>A：</b>提前一天入户时口头通知、民宿主帮传话</li><li><b>B：</b>改入户一对一，入户时顺带做儿童内容</li><li><b>C：</b>傍晚村口广场/小卖部摆摊</li></ul></div>
+    <div class="card"><h3>📵 山区无网</h3><ul><li>所有App、素材提前下载离线版</li><li>纸质问卷是主力，App仅做备份</li><li>晚上回驻地有网再上传素材</li><li>小程序码卡片让村民回家扫码</li></ul></div>
+    <div class="card"><h3>🏥 人员伤病</h3><ul><li>轻症：队长处常用药，就地休息</li><li>较重：包车送石台县人民医院</li><li>紧急：120，通知导师和家长</li><li>每晚复盘确认全员身体状态</li></ul></div>
+    <div class="card"><h3>🙅 村民不配合</h3><ul><li>由村委干部/熟人引荐入户</li><li>老人从关心身体/生活切入，防诈骗开头接受度最高</li><li>不愿填问卷不强求，闲聊后自己补记</li><li>小礼品/话术卡是敲门砖</li></ul></div>
+    <div class="card"><h3>🚫 夜校当周没有</h3><ul><li>改傍晚村口摆"普法摊位"</li><li>或借一户院子做"小院普法"，约邻居来</li></ul></div>
+  </div>
+  <div class="card" style="margin-top:10px"><h3>紧急联络</h3>
     <table>
-      <thead><tr><th>类别</th><th>项目</th><th>小计</th></tr></thead>
+      <thead><tr><th>用途</th><th>联系人</th><th>电话</th><th>状态</th></tr></thead>
       <tbody>
-        <tr><td>交通</td><td>高铁往返+大巴+村间包车</td><td>~2880</td></tr>
-        <tr><td>住宿</td><td>民宿6晚（争取免费）</td><td>0~2880</td></tr>
-        <tr><td>餐饮</td><td>7天+补给</td><td>~3000</td></tr>
-        <tr><td>物料</td><td>打印+塑封+奖品</td><td>~470</td></tr>
-        <tr><td>其他</td><td>药品+保险+备用</td><td>~720</td></tr>
-        <tr style="font-weight:700;border-top:2px solid #333"><td colspan="2">合计（含住宿 / 免住宿）</td><td>~9950 / ~7070</td></tr>
+        <tr><td>队长</td><td></td><td>待填</td><td></td></tr>
+        <tr><td>导师</td><td>待核实</td><td>18788843121</td><td>⚠ 待确认</td></tr>
+        <tr><td>大山村委</td><td></td><td>待填</td><td>Day1获取</td></tr>
+        <tr><td>应急包车</td><td></td><td>待填</td><td>Day1获取</td></tr>
+        <tr><td>石台县人民医院</td><td>—</td><td>0566-6027120</td><td></td></tr>
+        <tr><td>报警</td><td>—</td><td>110</td><td></td></tr>
       </tbody>
     </table>
-    <div class="hl">住宿是大头，优先争取村委/团委免费安排。申报按1万填留余量。</div>
-  </div></details>
-
-  <details class="acc"><summary>🆘 应急预案</summary><div class="acc-body">
-    <div style="display:flex;flex-direction:column;gap:8px">
-      <div><b>🌧 恶劣天气</b><div style="font-size:10px;color:var(--mt)">小雨转室内·大雨取消户外转整理数据·每晚查次日天气</div></div>
-      <div><b>👧 召集不到儿童</b><div style="font-size:10px;color:var(--mt)">A:入户口头通知+民宿主帮传话 B:改入户一对一 C:傍晚村口摆摊</div></div>
-      <div><b>📵 山区无网</b><div style="font-size:10px;color:var(--mt)">App/素材提前离线·纸质问卷主力·晚上回驻地传素材·小程序码让村民回家扫</div></div>
-      <div><b>🏥 人员伤病</b><div style="font-size:10px;color:var(--mt)">轻症:队长处常用药·较重:包车送石台县人民医院·紧急:120+通知导师家长</div></div>
-      <div><b>🙅 村民不配合</b><div style="font-size:10px;color:var(--mt)">村委引荐·从防诈骗切入·不强求·小礼品敲门</div></div>
-      <div><b>🚫 夜校没有</b><div style="font-size:10px;color:var(--mt)">改傍晚村口"普法摊位"·或借院子做"小院普法"</div></div>
-    </div>
-  </div></details>
-
-  <details class="acc"><summary>📞 紧急联络</summary><div class="acc-body">
-    <table>
-      <thead><tr><th>用途</th><th>电话</th><th>状态</th></tr></thead>
-      <tbody>
-        <tr><td>队长</td><td>待填</td><td></td></tr>
-        <tr><td>导师</td><td>18788843121</td><td>⚠待确认</td></tr>
-        <tr><td>大山村委</td><td>待填</td><td>Day1获取</td></tr>
-        <tr><td>应急包车</td><td>待填</td><td>Day1获取</td></tr>
-        <tr><td>石台县人民医院</td><td>0566-6027120</td><td></td></tr>
-        <tr><td>报警</td><td>110</td><td></td></tr>
-      </tbody>
-    </table>
-  </div></details>
-
-</div>
-
-<!-- BOTTOM NAV -->
-<div class="bnav" id="bnav">
-  <button class="on" onclick="switchPage('sched')"><span class="bi">📅</span>日程</button>
-  <button onclick="switchPage('list')"><span class="bi">📋</span>清单</button>
-  <button onclick="switchPage('tools')"><span class="bi">⚙️</span>工具</button>
+  </div>
 </div>
 
 </div>
 
-<script>
-function switchPage(p){
-  document.querySelectorAll('.page').forEach(x=>x.classList.remove('on'));
-  document.getElementById('page-'+p).classList.add('on');
-  document.querySelectorAll('#bnav button').forEach(x=>x.classList.remove('on'));
-  event.target.closest('button').classList.add('on');
-}
-function showDay(n){
-  document.querySelectorAll('.week button').forEach((b,i)=>b.classList.toggle('on',i===n));
-  document.querySelectorAll('.day-card').forEach((c,i)=>{c.open=(i===n)});
-  document.getElementById('dc'+n).scrollIntoView({behavior:'smooth',block:'start'});
-}
-</script>
+<script>function sw(n){document.querySelectorAll('.tp').forEach(p=>p.classList.remove('on'));document.querySelectorAll('.tn button').forEach(b=>b.classList.remove('on'));document.getElementById('tp-'+n).classList.add('on');document.querySelector('button[onclick="sw(\''+n+'\')"]').classList.add('on')}</script>
 </body>
 </html>
